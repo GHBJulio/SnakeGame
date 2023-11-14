@@ -8,24 +8,20 @@ import java.net.URL;
 
 import javax.imageio.ImageIO;
 
-public class GameUtil
+public class  GameUtil
 {
-	public static Image getImage(String imagePath)
-	{
+	public static Image getImage(String imagePath) {
 		URL u = GameUtil.class.getClassLoader().getResource(imagePath);
 		BufferedImage i = null;
-		try
-		{
+		try {
 			i = ImageIO.read(u);
-		} catch (Exception e)
-		{
-			System.err.println("VILLA : FINN EKKI TILTEKNA MYNDIN !\n");
+		} catch (Exception e) {
+			System.err.println("ERROR : SPECIFIC IMAGE NOT FOUND!\n");
 			e.printStackTrace();
 		}
 
 		return i;
 	}
-
 	public static Image rotateImage(final BufferedImage bufferedImage, final int degree)
 	{
 	int w = bufferedImage.getWidth();

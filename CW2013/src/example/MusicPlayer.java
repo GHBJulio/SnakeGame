@@ -4,7 +4,6 @@ import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.util.Random;
 import java.awt.Graphics2D;
-
 import javazoom.jl.player.Player;
 
 public class MusicPlayer extends Thread

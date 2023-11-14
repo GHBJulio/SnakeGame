@@ -38,7 +38,7 @@ public class Play extends MyFrame
 		super.paint(g);
 		g.drawImage(background, 0, 0, null);
 
-		// Ákveða stöðu leiksins.
+		// Determine the state of the game.
 		if (mySnake.l)
 		{
 			mySnake.draw(g);

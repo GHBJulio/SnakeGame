@@ -10,8 +10,8 @@ public class Paddle {
 
     public static final int DEF_MOVE_AMOUNT = 5;
 
-    private Rectangle paddleFace;
-    private Point ballPoint;
+    private Rectangle paddleFace; // represents the rectangle object's upper left point (x,y)
+    private Point ballPoint; // represents a location (x,y) (int precision)
     private int moveAmount;
     private int min;
     private int max;
