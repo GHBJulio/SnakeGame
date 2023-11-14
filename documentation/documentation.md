@@ -2,10 +2,10 @@
 
 This document provides an overview of the project.
 
-## UML Diagrams
+## Diagrams
 
-![Initial Class Diagram](image.png)
+![Diagram 1](image.png)
 
 ## Usage
 
-... TBD
+.. TBD
