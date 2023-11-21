@@ -10,33 +10,32 @@ public class Play extends MyFrame
 {
 	private static final long serialVersionUID = -3641221053272056036L;
 
-	public MySnake mySnake = new MySnake(100, 100);// x , y
+	public MySnake snake = new MySnake(100, 100);// x , y
 	public Food food = new Food();
-
-	public Image background = ImageUtil.images.get("UI-background");
-	public Image fail = ImageUtil.images.get("game-scene-01");
+	public Image backgroundImage = ImageUtil.images.get("UI-background");
+	public Image failImage = ImageUtil.images.get("game-scene-01");
 
 	@Override
 	public void keyPressed(KeyEvent e)
 	{
 		super.keyPressed(e);
-		mySnake.keyPressed(e);
+		snake.keyPressed(e);
 	}
 
 	@Override
 	public void paint(Graphics g)
 	{
 		super.paint(g);
-		g.drawImage(background, 0, 0, null);
+		g.drawImage(backgroundImage, 0, 0, null);
 
 		// Determine the state of the game.
-		if (mySnake.l)
+		if (snake.isAlive)
 		{
-			mySnake.draw(g);
-			if (food.l)
+			snake.draw(g);
+			if (food.isAlive)
 			{
 				food.draw(g);
-				food.eaten(mySnake);
+				food.eaten(snake);
 			} else
 			{
 				food = new Food();
@@ -44,7 +43,7 @@ public class Play extends MyFrame
 		} else
 		{
 			// MusicPlayer.stopMusic("src/SnakeGame/frogger.mp3"); - stops music as game ends.
-			g.drawImage(fail, 0, 0, null); // edit this to be the options menu (addition)
+			g.drawImage(failImage, 0, 0, null); // edit this to be the options menu (addition)
 		}
 		drawScore(g);
 	}
@@ -53,7 +52,7 @@ public class Play extends MyFrame
 	{
 		g.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 30));
 		g.setColor(Color.MAGENTA);
-		g.drawString("Score : " + mySnake.score, 20, 40); // edit this as well to maybe add something nicer as the score.
+		g.drawString("Score : " + snake.score, 20, 40); // edit this as well to maybe add something nicer as the score.
 	}
 
 	public static void main(String[] args)

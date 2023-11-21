@@ -15,12 +15,12 @@ public class Food extends MyFrame.SnakeObject
 
 	public Food()
 	{
-		this.l = true;
-		this.i = getRandomFoodImage();
-		this.w = i.getWidth(null);
-		this.h = i.getHeight(null);
-		this.x = getRandomXPosition();
-		this.y = getRandomYPosition();
+		this.isAlive = true;
+		this.image = getRandomFoodImage();
+		this.w = image.getWidth(null);
+		this.h = image.getHeight(null);
+		this.headX = getRandomXPosition();
+		this.headY = getRandomYPosition();
 	}
 
 	private Image getRandomFoodImage() {
@@ -39,15 +39,15 @@ public class Food extends MyFrame.SnakeObject
 
 	public void eaten(MyFrame.MySnake mySnake)	{
 
-		if (mySnake.getRectangle().intersects(this.getRectangle()) && l && mySnake.l)		{
-			this.l = false;
-			mySnake.changeLength(mySnake.getLength() + 1); // add a variable for the amount it grows
+		if (mySnake.getRectangle().intersects(this.getRectangle()) && isAlive && mySnake.isAlive)		{
+			this.isAlive = false;
+			mySnake.changeLength(mySnake.getSnakeLength() + 1); // add a variable for the amount it grows
 			mySnake.score += 1;  // add a variable for score++
 		}
 	}
 	@Override
 	public void draw(Graphics g)
 	{
-		g.drawImage(i, x, y, null);
+		g.drawImage(image, headX, headY, null);
 	}
 }

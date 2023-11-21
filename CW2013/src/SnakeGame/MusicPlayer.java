@@ -9,13 +9,13 @@ import java.io.FileInputStream;
 // well designed class to just have key features needed (keep)
 public class MusicPlayer extends Thread
 {
-	private String filename;
+	private String musicFilename;
 	private static Player player;
 
 
 	public MusicPlayer(String filename)
 	{
-		this.filename = filename;
+		this.musicFilename = filename;
 	}
 
 	public void play()
@@ -26,7 +26,7 @@ public class MusicPlayer extends Thread
 					super.run();
 					try {
 						// while(true) { // small modification, keeps playing the same music as it ends.
-							player = new Player(new BufferedInputStream(new FileInputStream(filename)));
+							player = new Player(new BufferedInputStream(new FileInputStream(musicFilename)));
 							player.play();
 						//}
 					} catch (Exception e) {
