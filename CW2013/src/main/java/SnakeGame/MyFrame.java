@@ -24,7 +24,7 @@ public class MyFrame extends JPanel implements KeyListener
 
 	public MyFrame()
 	{
-		jFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(MyFrame.class.getResource("snake-logo.png")));
+		jFrame.setIconImage(GameUtil.getImage("snake-logo.png"));
 	}
 	public void loadFrame()
 	{

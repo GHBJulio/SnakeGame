@@ -5,11 +5,63 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45f4b637-e193-424b-96c8-f43350f6fe65" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/googlecode_soundlibs_jlayer1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SnakeGame/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnakeGame/Food.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SnakeGame/MusicPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnakeGame/MusicPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SnakeGame/MyFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnakeGame/MyFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SnakeGame/Play.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnakeGame/Play.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CW2013.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CW2013.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/1629702755362_84a39ede3284dfcaa71703c98647a8f5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/1629702755362_84a39ede3284dfcaa71703c98647a8f5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/2294056ad1aa7e15ed1f2337507fa19e.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/2294056ad1aa7e15ed1f2337507fa19e.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/Food.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/GameUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/GameUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/ImageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/ImageUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/MusicPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/MusicPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/MyFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/MyFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/Paddle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/Paddle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/Play.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/Play.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/Snake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/Snake.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/UI-background.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/UI-background.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/UI-background2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/UI-background2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/a4229a483cf76e0b5458450c2e591ff3--d-texture-paint-texture.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/a4229a483cf76e0b5458450c2e591ff3--d-texture-paint-texture.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/end.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/end.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/food-apple.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/food-apple.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/food-banana.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/food-banana.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/food-blueberry.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/food-blueberry.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/food-cherry.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/food-cherry.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/food-durian.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/food-durian.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/food-grape.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/food-grape.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/food-grapefruit.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/food-grapefruit.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/food-kiwi.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/food-kiwi.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/food-lemon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/food-lemon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/food-litchi.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/food-litchi.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/food-mango.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/food-mango.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/food-orange.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/food-orange.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/food-peach.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/food-peach.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/food-pear.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/food-pear.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/food-pineapple.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/food-pineapple.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/food-pitaya.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/food-pitaya.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/food-strawberry.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/food-strawberry.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/food-watermelon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/food-watermelon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/frogger.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/frogger.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/game-scene-01.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/game-scene-01.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/in-snake-head-clipart-snake-head-cartoon-11562915033zdtswr66u1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/in-snake-head-clipart-snake-head-cartoon-11562915033zdtswr66u1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/jl1.0.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/jl1.0.1.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/jlayer1.0.1.zip" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/jlayer1.0.1.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/kindpng_2287331.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/kindpng_2287331.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/kindpng_4091760.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/kindpng_4091760.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/movable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/movable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/snake-body.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/snake-body.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/snake-graphics.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/snake-graphics.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/snake-head-right.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/snake-head-right.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/snake-logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/snake-logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/snake_sprites.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/snake_sprites.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnakeGame/wp3906260.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/wp3906260.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +94,7 @@
     &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/guilhermejulio/comp2013-dmscw/CW2013&quot;,
@@ -49,14 +102,16 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
@@ -70,7 +125,9 @@
       <updated>1700047560605</updated>
       <workItem from="1700047561721" duration="582000" />
       <workItem from="1700048389879" duration="608000" />
-      <workItem from="1700598930764" duration="1326000" />
+      <workItem from="1700598930764" duration="2581000" />
+      <workItem from="1700652150165" duration="1339000" />
+      <workItem from="1700653902406" duration="2921000" />
     </task>
     <servers />
   </component>
