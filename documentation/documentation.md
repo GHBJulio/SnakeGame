@@ -2,9 +2,13 @@
 
 This document provides an overview of the project.
 
-## Diagrams
+## Class Diagram (Before maintenance task)
 
 ![Diagram 1](ClassDiagram.png)
+
+## Class Diagram (After maintenance task)
+
+![Diagram 2](MaintenanceDiagram.png)
 
 ## Overview
 
