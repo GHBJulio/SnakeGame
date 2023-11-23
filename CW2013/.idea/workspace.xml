@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45f4b637-e193-424b-96c8-f43350f6fe65" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/googlecode_soundlibs_jlayer1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/MyFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/MyFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/movable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/Paddle.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +72,7 @@
       <workItem from="1700598930764" duration="2581000" />
       <workItem from="1700652150165" duration="1339000" />
       <workItem from="1700653902406" duration="3393000" />
-      <workItem from="1700766729717" duration="794000" />
+      <workItem from="1700766729717" duration="1101000" />
     </task>
     <servers />
   </component>
