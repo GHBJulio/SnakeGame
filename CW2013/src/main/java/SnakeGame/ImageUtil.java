@@ -15,7 +15,7 @@ public class  ImageUtil
 		// snake
 		images.put("snake-head-right", GameUtil.getImage("snake-head-right.png"));
 		images.put("snake-body", GameUtil.getImage("snake-body.png"));
-		// obstacles
+		// food
 		images.put("0", GameUtil.getImage("food-kiwi.png"));
 		images.put("1", GameUtil.getImage("food-lemon.png"));
 		images.put("2", GameUtil.getImage("food-litchi.png"));

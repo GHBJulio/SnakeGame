@@ -25,31 +25,27 @@ public class MusicPlayer extends Thread
 				public void run() {
 					super.run();
 					try {
-						// while(true) { // small modification, keeps playing the same music as it ends.
+						while(true) { // small modification, keeps playing the same music as it ends.
 							player = new Player(new BufferedInputStream(new FileInputStream(musicFilename)));
 							player.play();
-						//}
+						}
 					} catch (Exception e) {
 						System.out.println(e);
 					}
 				}
 			}.start();
-
 	}
-
-
-
 	public static void getMusicPlay(String filename)
 	{
 		MusicPlayer musicPlayer = new MusicPlayer(filename);
 		musicPlayer.play();
 	}
 
-//	public static void stopMusic(String filename) { - quick implementation function to stop music.
-//	if (player != null){
-//		player.close();
-//	}
-	//}
+	public static void stopMusic(String filename) { // quick implementation function to stop music.
+	if (player != null){
+		player.close();
+	}
+	}
 
 
 

@@ -5,7 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45f4b637-e193-424b-96c8-f43350f6fe65" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/Paddle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/Food.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/ImageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/ImageUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/MusicPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/MusicPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/SnakeGameApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/SnakeGameApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/Food.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SnakeGame/Food.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SnakeGame/Model.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/MusicPlayer$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SnakeGame/MusicPlayer$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/MusicPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SnakeGame/MusicPlayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/MyFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/MyFrame$MySnake.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/MyFrame$MyThread.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/MyFrame$SnakeObject.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/MyFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/Paddle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/Play.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/Snake.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/movable.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +36,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="module-info" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -55,6 +76,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/SnakeGame" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
@@ -72,7 +94,7 @@
       <workItem from="1700598930764" duration="2581000" />
       <workItem from="1700652150165" duration="1339000" />
       <workItem from="1700653902406" duration="3393000" />
-      <workItem from="1700766729717" duration="1101000" />
+      <workItem from="1700766729717" duration="15433000" />
     </task>
     <servers />
   </component>

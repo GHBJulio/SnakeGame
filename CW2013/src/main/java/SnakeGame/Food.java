@@ -8,7 +8,7 @@ import java.awt.Image;
 // added new methods to handle generation of random values and image selection
 // improving readability & maintainability (Keep)
 
-public class Food extends MyFrame.SnakeObject
+public class Food extends SnakeObject
 {
 
 	private static final long serialVersionUID = -3641221053272056036L;
@@ -37,8 +37,7 @@ public class Food extends MyFrame.SnakeObject
 	}
 
 
-	public void eaten(MyFrame.MySnake mySnake)	{
-
+	public void eaten(MySnake mySnake)	{
 		if (mySnake.getRectangle().intersects(this.getRectangle()) && isAlive && mySnake.isAlive)		{
 			this.isAlive = false;
 			mySnake.changeLength(mySnake.getSnakeLength() + 1); // add a variable for the amount it grows
