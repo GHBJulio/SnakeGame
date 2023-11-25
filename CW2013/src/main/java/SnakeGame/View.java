@@ -261,7 +261,7 @@ public class MyFrame extends JPanel implements KeyListener
 		private void outofBounds()
 		{
 			boolean xOut = (headX <= 0 || headX >= (870 - w));
-			boolean yOut = (headY <= 40 || headY >= (560 - h)); // updated version = boolean yOut = (y <= 0 || y >= (560 - h));
+			boolean yOut = (headY <= 0 || headY >= (560 - h)); // updated version = boolean yOut = (y <= 0 || y >= (560 - h));
 			// old code yOut wasn't working properly as snake would not be able to eat food on top of the screen
 			if (xOut || yOut)
 			{
