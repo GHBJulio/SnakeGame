@@ -5,27 +5,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45f4b637-e193-424b-96c8-f43350f6fe65" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/openjfx_javafx_media.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/Controllers/MenuController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/Models/FoodModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/Models/MusicPlayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/Models/SnakeModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/RunnableSceneController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/StageManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/Game.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/Menu.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/Food.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/ImageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/ImageUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/MusicPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/MusicPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/Models/Food.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/GameUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/ImageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/Models/ImageUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/Model.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/MusicPlayer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/MySnake.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/SnakeGameApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/SnakeGameApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/Food.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SnakeGame/Food.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SnakeGame/Model.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/MusicPlayer$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SnakeGame/MusicPlayer$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/MusicPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SnakeGame/MusicPlayer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/MyFrame$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/MyFrame$MySnake.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/MyFrame$MyThread.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/MyFrame$SnakeObject.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/MyFrame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/Paddle.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/Play.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/Snake.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/movable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/SnakeObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/Models/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/View.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/jl1.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/jlayer1.0.1.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/1629702755362_84a39ede3284dfcaa71703c98647a8f5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MenuBackground.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/1629702755362_84a39ede3284dfcaa71703c98647a8f5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/Food.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/GameUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/ImageUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/Model.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/MusicPlayer$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/MusicPlayer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/MySnake.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/SnakeGameApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SnakeGame/SnakeGameApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/SnakeObject.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/View$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/View$MyThread.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/View.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/java/SnakeGame/jl1.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/java/SnakeGame/jlayer1.0.1.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/1629702755362_84a39ede3284dfcaa71703c98647a8f5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +58,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="module-info" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -67,7 +90,7 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
@@ -75,8 +98,13 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="SnakeGame.view" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/SnakeGame" />
+      <recent name="$PROJECT_DIR$/src/main/resources/fxml" />
+      <recent name="$PROJECT_DIR$/src/main/java/SnakeGame/view" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
@@ -95,6 +123,12 @@
       <workItem from="1700652150165" duration="1339000" />
       <workItem from="1700653902406" duration="3393000" />
       <workItem from="1700766729717" duration="15433000" />
+      <workItem from="1700937224730" duration="4705000" />
+      <workItem from="1701092023892" duration="46000" />
+      <workItem from="1701092481311" duration="48527000" />
+      <workItem from="1701280404890" duration="11099000" />
+      <workItem from="1701298102583" duration="1201000" />
+      <workItem from="1701350367270" duration="487000" />
     </task>
     <servers />
   </component>
@@ -111,5 +145,19 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalStateException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
