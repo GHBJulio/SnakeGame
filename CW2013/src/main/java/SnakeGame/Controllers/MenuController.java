@@ -1,5 +1,6 @@
 package SnakeGame.Controllers;
 
+import SnakeGame.Models.MusicPlayer;
 import SnakeGame.RunnableSceneController;
 import SnakeGame.SnakeGameApp;
 import javafx.application.Platform;
@@ -12,6 +13,7 @@ public class MenuController extends RunnableSceneController {
     @FXML
     public void goToGame(ActionEvent actionEvent) {
         SnakeGameApp.stageManager.loadScene("/fxml/Game.fxml");
+        MusicPlayer.getMusicPlay("src/main/resources/frogger.mp3", true);
 
     }
     @FXML

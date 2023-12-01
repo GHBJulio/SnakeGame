@@ -1,10 +1,10 @@
 package SnakeGame.Models;
 
-import javafx.geometry.Point2D;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.awt.*;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -17,7 +17,9 @@ public class SnakeModel extends Entity {
 
     private static Image IMG_SNAKE_HEAD = ImageUtil.images.get("snake-head-right");
 
-    public List<Point2D> bodyPoints = new LinkedList<>();
+    public List<Point> bodyPoints = new LinkedList<>();
+
+    public List<ImageView> bodyPointImages = new LinkedList<>();
     private boolean isAlive;
     boolean up, down, left, right = true;
 
@@ -30,10 +32,10 @@ public class SnakeModel extends Entity {
         this.w = (int) image.getWidth();
         this.h = (int) image.getHeight();
 
-        this.speed_XY = 7;
+        this.speed_XY = 1;
         this.snakeLength = 1;
 
-        this.num = w / speed_XY;
+        this.num = w / 2;
     }
 
     public Image getBody()
@@ -100,7 +102,7 @@ public class SnakeModel extends Entity {
         return score;
     }
 
-    public List<Point2D> getBodyPoints() {
+    public List<Point> getBodyPoints() {
         return bodyPoints;
     }
 
