@@ -4,6 +4,7 @@ import SnakeGame.Models.FoodModel;
 import SnakeGame.Models.MusicPlayer;
 import SnakeGame.Models.SnakeModel;
 import SnakeGame.RunnableSceneController;
+import SnakeGame.SnakeGameApp;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -11,12 +12,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 import java.awt.*;
+
+import javafx.scene.control.Alert;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -54,9 +58,8 @@ public class GameController extends RunnableSceneController implements Initializ
         head.setX(snake.getHeadX());
         head.setY(snake.getHeadY());
         food = new FoodModel();
-        System.out.println("playmusic1");
-        musicPlayer1 = new MusicPlayer("src/main/resources/frogger.mp3");
-        musicPlayer1.play();
+        //musicPlayer1 = new MusicPlayer("src/main/resources/frogger.mp3");
+        //musicPlayer1.play();
 
         gameThread = new Thread(() -> {
             while (gameRunning) {
@@ -308,11 +311,28 @@ public class GameController extends RunnableSceneController implements Initializ
         MusicPlayer.stopAllMusic();
     }
 
+    public void submitName(ActionEvent actionEvent) throws IOException {
+        DatabaseConnection.createLeaderboard();
+        if (!addNameField.getText().matches("[a-zA-Z0-9 ]+") || addNameField.getText() == null || addNameField.getText().isEmpty() || addNameField.getText().length() > 15 || addNameField.getText().trim().isEmpty())
+        {
+            showInvalidInputAlert();
+        }
+        else{
+            DatabaseConnection.updateLeaderboard(addNameField.getText(), snake.getScore());
+            SnakeGameApp.stageManager.loadScene("/fxml/Menu.fxml");
+        }
 
 
 
-    public void submitName(ActionEvent actionEvent) {
-        System.out.println(addNameField.getText());
+    }
+
+    public static void showInvalidInputAlert() {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Invalid Input");
+        alert.setHeaderText(null);
+        alert.setContentText("Invalid name! Please 10 characters maximum and use only alphanumeric characters and spaces.");
+
+        alert.showAndWait();
     }
 
 }

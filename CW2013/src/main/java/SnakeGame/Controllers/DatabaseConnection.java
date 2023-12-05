@@ -1,0 +1,155 @@
+package SnakeGame.Controllers;
+
+import SnakeGame.Models.PlayerModel;
+import javafx.scene.control.Alert;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+
+
+import java.util.*;
+
+
+public class DatabaseConnection {
+
+    public static String filePath = "local_leaderboard.xlsx";
+    public static String SHEET_NAME = "Leaderboard";
+    public static boolean createLeaderboard() throws IOException {
+        Path path = Paths.get(filePath);
+
+        // Check if the file already exists
+        if (Files.exists(path)) {
+            System.out.println("File already exists: " + filePath);
+            return true;
+        }
+
+        Workbook workbook = new XSSFWorkbook();
+        Sheet sheet = workbook.createSheet(SHEET_NAME);
+
+        // Create headers
+        Row headerRow = sheet.createRow(0);
+        headerRow.createCell(0).setCellValue("Player Name");
+        headerRow.createCell(1).setCellValue("Score");
+
+
+        // Save the workbook
+        try (FileOutputStream fileOut = new FileOutputStream(filePath)) {
+            workbook.write(fileOut);
+        }
+
+        workbook.close();
+
+        System.out.println("File created successfully: " + filePath);
+        return false;
+    }
+
+    public static void updateLeaderboard(String playerName, int score) throws IOException {
+       // Workbook workbook = WorkbookFactory.create(Objects.requireNonNull(DatabaseConnection.class.getResourceAsStream("/ExcelFiles/local_leaderboard.xlsx")));
+
+        // Check if the file exists
+        boolean fileExists = new File(filePath).exists();
+
+        // Create new workbook if the file doesn't exist
+        Workbook workbook = null;
+        if (!fileExists) {
+            createLeaderboard();
+            System.out.println("ERROR WORKBOOK DOESN'T EXIST");
+        } else {
+            // If file exists, read data from the file
+            workbook = new XSSFWorkbook(new FileInputStream(filePath));
+        }
+        Sheet sheet = workbook.getSheet(SHEET_NAME);
+
+        //Iterator<Row> rowIterator = sheet.iterator();
+
+
+        // Find the last row number with data
+        int lastRowNum = sheet.getPhysicalNumberOfRows();
+        System.out.println(lastRowNum);
+
+        // Create a new row right after the last row
+        Row row = sheet.createRow(lastRowNum++);
+
+        // Set player name and score
+        row.createCell(0).setCellValue(playerName);
+        row.createCell(1).setCellValue(score);
+
+        // Save the workbook with append mode
+        try (FileOutputStream fileOut = new FileOutputStream(filePath)) {
+            workbook.write(fileOut);
+        }
+
+        workbook.close();
+    }
+
+    public static List<PlayerModel> readPlayersFromLeaderboard() throws IOException {
+        List<PlayerModel> players = new ArrayList<>();
+
+        Path path = Paths.get(filePath);
+
+        // Check if the file already exists
+        if (!Files.exists(path)) {
+            System.out.println("File Doesn't exist: " + filePath);
+            return null;
+        }
+
+
+        try (FileInputStream fileInputStream = new FileInputStream(filePath);
+             Workbook workbook = new XSSFWorkbook(fileInputStream)) {
+
+            Sheet sheet = workbook.getSheet(SHEET_NAME);
+
+            if (sheet == null || sheet.getPhysicalNumberOfRows() <= 1) {
+                // No data or only header row found
+                showAlert("Leaderboard not available yet.");
+                throw new IOException("Leaderboard is empty or not available yet.");
+
+            }
+
+            for (Row row : sheet) {
+                if (row.getRowNum() == 0) {
+                    // Skip header row
+                    continue;
+                }
+
+                String playerName = row.getCell(0).getStringCellValue();
+                int score = (int) row.getCell(1).getNumericCellValue();
+
+                players.add(new PlayerModel(playerName, score));
+            }
+
+            // printPlayers(players);
+        }
+
+        return players;
+    }
+
+
+    private static void printPlayers(List<PlayerModel> players) {
+        for (PlayerModel player : players) {
+            System.out.println("Player Name: " + player.getPlayerName());
+            System.out.println("Score: " + player.getScore());
+            System.out.println("---------------------------");
+        }
+    }
+
+    private static void showAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+
+
+}

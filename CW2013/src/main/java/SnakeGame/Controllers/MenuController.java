@@ -13,12 +13,13 @@ public class MenuController extends RunnableSceneController {
     @FXML
     public void goToGame(ActionEvent actionEvent) {
         SnakeGameApp.stageManager.loadScene("/fxml/Game.fxml");
-        MusicPlayer.getMusicPlay("src/main/resources/frogger.mp3", true);
+       // MusicPlayer.getMusicPlay("src/main/resources/frogger.mp3", true);
 
     }
     @FXML
     public void goToLeaderboard(ActionEvent actionEvent) {
-        // SnakeGameApp.stageManager.loadScene("/fxml/Leaderboard.fxml");
+        SnakeGameApp.stageManager.loadScene("/fxml/Leaderboard.fxml");
+
     }
 
     @FXML
@@ -26,8 +27,4 @@ public class MenuController extends RunnableSceneController {
         Platform.exit();
     }
 
-    public Scene getScenes()
-    {
-        return scene;
-    }
 }

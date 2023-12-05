@@ -6,6 +6,7 @@ import java.net.URL;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class StageManager {
 	private Stage mainStage;
@@ -24,8 +25,8 @@ public class StageManager {
 		this.title = title;
 	}
 
-	public Scene loadScene(String urlPath) {
-		return loadScene(getClass().getResource(urlPath));
+	public void loadScene(String urlPath) {
+		loadScene(getClass().getResource(urlPath));
 	}
 
 	public Scene loadScene(URL url) {
@@ -37,9 +38,9 @@ public class StageManager {
 			scene = new Scene(loader.load());
 		} catch (IOException e) {
 			e.printStackTrace();
-			return null;
+			throw new RuntimeException("An error occurred", e);
 		}
-
+		mainStage.setResizable(false);
 		mainStage.setScene(scene);
 		mainStage.setTitle(title);
 		mainStage.show();
