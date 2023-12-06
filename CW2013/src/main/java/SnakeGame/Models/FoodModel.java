@@ -23,7 +23,7 @@ public class FoodModel extends Entity {
 
     private Image getRandomFoodImage() {
         Random random = new Random();
-        return ImageUtil.images.get(String.valueOf(random.nextInt(10)));
+        return ImageUtil.images.get(String.valueOf(random.nextInt(16)));
     }
 
     public Rectangle foodRect()

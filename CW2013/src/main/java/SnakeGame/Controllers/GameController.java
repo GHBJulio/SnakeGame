@@ -17,6 +17,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
@@ -97,9 +98,6 @@ public class GameController extends RunnableSceneController implements Initializ
             public void handle(KeyEvent e) {
                 if (!gamePaused) {
                     switch (e.getCode()) {
-                        case P, X:
-                            togglePause();  // Pause when 'P' key is pressed
-                            break;
                         case UP:
                             if (!snake.isDown()) {
                                 snake.setUp(true);
@@ -144,6 +142,10 @@ public class GameController extends RunnableSceneController implements Initializ
         gameThread.start();
     }
 
+    @FXML
+    public void pauseGame(MouseEvent mouseEvent) {
+            togglePause();
+    }
     private void togglePause()  {
         gamePaused = !gamePaused;
         if (gamePaused) {
@@ -293,15 +295,14 @@ public class GameController extends RunnableSceneController implements Initializ
         }
 
         head.setRotate(rotation);
-
         // Set the image of the head
         head.setImage(snake.getImgSnakeHead().getImage());
     }
 
     private void outofBounds()
     {
-        boolean xOut = (snake.getHeadX() <= 0 ||snake.getHeadX() >= (810 - snake.getW()));
-        boolean yOut = (snake.getHeadY() <= 0 || snake.getHeadY() >= (510 - snake.getH())); // updated version = boolean yOut = (y <= 0 || y >= (560 - h));
+        boolean xOut = (snake.getHeadX() <= 0 ||snake.getHeadX() >= (800 - snake.getW()));
+        boolean yOut = (snake.getHeadY() <= 0 || snake.getHeadY() >= (500 - snake.getH())); // updated version = boolean yOut = (y <= 0 || y >= (560 - h));
         // old code yOut wasn't working properly as snake would not be able to eat food on top of the screen
         if (xOut || yOut)
         {
@@ -370,6 +371,5 @@ public class GameController extends RunnableSceneController implements Initializ
             node.setVisible(false);
         }
     }
-
 
 }

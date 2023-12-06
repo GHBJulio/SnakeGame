@@ -34,7 +34,7 @@ public class  ImageUtil {
 		images.put("14", getImage("food-pineapple.png"));
 		images.put("15", getImage("food-strawberry.png"));
 		images.put("16", getImage("food-watermelon.png"));
-		images.put("UI-background", getImage("UI-background.png"));
+		images.put("17", getImage("UI-background.png"));
 		images.put("game-scene-01", getImage("game-scene-01.jpg"));
 	}
 
@@ -46,10 +46,6 @@ public class  ImageUtil {
 			e.printStackTrace();
 			return null;
 		}
-	}
-	public static ImageView rotateImage(final ImageView imageView, final double degree) {
-		imageView.setRotate(degree);
-		return imageView;
 	}
 
 }

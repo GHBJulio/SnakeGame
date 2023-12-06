@@ -8,7 +8,9 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,7 +22,6 @@ public class MenuController extends RunnableSceneController implements Initializ
 
     public static GameController controller;
 
-
     @FXML
     public void goToGame(ActionEvent actionEvent) {
 
@@ -29,7 +30,6 @@ public class MenuController extends RunnableSceneController implements Initializ
             SnakeGameApp.stageManager.resumeGame();
             controller.gamePaused = false;
         } else {
-            System.out.println("helo");
             // If the game is not paused or no controller is set, start a new game
             SnakeGameApp.stageManager.loadGameScene("/fxml/Game.fxml");
         }
@@ -43,7 +43,12 @@ public class MenuController extends RunnableSceneController implements Initializ
 
     @FXML
     public void exitApplication(ActionEvent actionEvent) {
-        Platform.exit();
+        if (controller != null && controller.gamePaused) {
+            alertProgress();
+        }
+        else {
+            Platform.exit();
+        }
     }
 
     @Override
@@ -51,11 +56,29 @@ public class MenuController extends RunnableSceneController implements Initializ
         if (controller != null && controller.gamePaused) {
             playButton.setText("Resume");
             leaderBoardButton.setVisible(false);
-        }
-        else{
+        } else {
             playButton.setText("Play");
             leaderBoardButton.setVisible(true);
         }
-
     }
+
+        public void alertProgress()
+        {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation Dialog");
+            alert.setHeaderText("Warning: Leaving now will result in lost progress");
+            alert.setContentText("Are you sure you want to leave?");
+            alert.getButtonTypes().setAll(ButtonType.YES, ButtonType.CANCEL);
+
+            alert.showAndWait().ifPresent(buttonType -> {
+                if (buttonType == ButtonType.YES) {
+                    // User clicked "Yes," perform any necessary action before closing the application
+                    System.out.println("User clicked Yes");
+                    Platform.exit();
+                } else {
+                    // User clicked "Cancel," do nothing
+                    System.out.println("User clicked Cancel");
+                }
+            });
+        }
 }
