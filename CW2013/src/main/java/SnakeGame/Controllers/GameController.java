@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 
 import java.awt.*;
 
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
@@ -27,6 +28,8 @@ import java.util.ResourceBundle;
 public class GameController extends RunnableSceneController implements Initializable {
     @FXML
     public AnchorPane rootPane;
+
+    private MenuController menu;
     @FXML
     public javafx.scene.control.TextField addNameField;
     @FXML
@@ -38,9 +41,13 @@ public class GameController extends RunnableSceneController implements Initializ
     private SnakeModel snake;
 
     private boolean gameRunning;
+
+    public boolean gamePaused;
     private ImageView head;
 
     private ImageView foodImage;
+
+    private ImageView bodyImage;
     private Thread gameThread;
 
     @FXML
@@ -50,9 +57,12 @@ public class GameController extends RunnableSceneController implements Initializ
     private MenuController controller;
 
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        MenuController.controller = this;
         gameRunning = true;
+        gamePaused = false;
         snake = new SnakeModel(100, 100);
         head = snake.getImgSnakeHead();
         head.setX(snake.getHeadX());
@@ -60,18 +70,24 @@ public class GameController extends RunnableSceneController implements Initializ
         food = new FoodModel();
         //musicPlayer1 = new MusicPlayer("src/main/resources/frogger.mp3");
         //musicPlayer1.play();
+        startGame();
+    }
 
+    private void startGame()
+    {
         gameThread = new Thread(() -> {
             while (gameRunning) {
-                try {
+                if (!gamePaused) {
                     drawGame();
                     outofBounds();
-                    Thread.sleep(1000/30);
-                } catch (Exception e) {
-                    e.printStackTrace();
                 }
+                    try {
+                        Thread.sleep(1000 / 30);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
             }
-            gameEnded();
+            if (!gameRunning){ gameEnded();}
         });
     }
 
@@ -79,53 +95,63 @@ public class GameController extends RunnableSceneController implements Initializ
     public void run() {
         scene.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
             public void handle(KeyEvent e) {
-                switch (e.getCode())
-                {
-                    case UP:
-                        if (!snake.isDown())
-                        {
-                            snake.setUp(true);
-                            snake.setDown(false);
-                            snake.setLeft(false);
-                            snake.setRight(false);
-                        }
-                        break;
+                if (!gamePaused) {
+                    switch (e.getCode()) {
+                        case P, X:
+                            togglePause();  // Pause when 'P' key is pressed
+                            break;
+                        case UP:
+                            if (!snake.isDown()) {
+                                snake.setUp(true);
+                                snake.setDown(false);
+                                snake.setLeft(false);
+                                snake.setRight(false);
+                            }
+                            break;
 
-                    case DOWN:
-                        if (!snake.isUp())
-                        {
-                            snake.setUp(false);
-                            snake.setDown(true);
-                            snake.setLeft(false);
-                            snake.setRight(false);
-                        }
-                        break;
+                        case DOWN:
+                            if (!snake.isUp()) {
+                                snake.setUp(false);
+                                snake.setDown(true);
+                                snake.setLeft(false);
+                                snake.setRight(false);
+                            }
+                            break;
 
-                    case LEFT:
-                        if (!snake.isRight())
-                        {
-                            snake.setUp(false);
-                            snake.setDown(false);
-                            snake.setLeft(true);
-                            snake.setRight(false);
-                        }
-                        break;
+                        case LEFT:
+                            if (!snake.isRight()) {
+                                snake.setUp(false);
+                                snake.setDown(false);
+                                snake.setLeft(true);
+                                snake.setRight(false);
+                            }
+                            break;
 
-                    case RIGHT:
-                        if (!snake.isLeft())
-                        {
-                            snake.setUp(false);
-                            snake.setDown(false);
-                            snake.setLeft(false);
-                            snake.setRight(true);
-                        }
-                        break;
-                    default:
-                        break;
+                        case RIGHT:
+                            if (!snake.isLeft()) {
+                                snake.setUp(false);
+                                snake.setDown(false);
+                                snake.setLeft(false);
+                                snake.setRight(true);
+                            }
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
         });
         gameThread.start();
+    }
+
+    private void togglePause()  {
+        gamePaused = !gamePaused;
+        if (gamePaused) {
+            SnakeGameApp.stageManager.loadNewScene("/fxml/Menu.fxml");
+            System.out.println("Paused");
+        } else {
+            System.out.println("Resumed");
+        }
     }
 
     public void drawGame() {
@@ -234,7 +260,7 @@ public class GameController extends RunnableSceneController implements Initializ
         for (int i = snake.bodyPoints.size() - 1; i >= 0; i--)
         {
             Point bodyPoint = snake.bodyPoints.get(i);
-            ImageView bodyImage = snake.bodyPointImages.get(i);
+            bodyImage = snake.bodyPointImages.get(i);
             if (i != 0)
             {
                 Point nextBodyPoint = snake.bodyPoints.get(i - 1);
@@ -299,15 +325,10 @@ public class GameController extends RunnableSceneController implements Initializ
 
     private void gameEnded()
     {
-        snake.setAlive(false);
-        gameRunning = false;
-        endImage.setVisible(true);
-        addNameField.setVisible(true);
-        addNameButton.setVisible(true);
-        endText.setVisible(true);
-        head.setVisible(false);
-        foodImage.setVisible(false);
-
+        hideAll(rootPane);
+        showEndGame();
+        gamePaused = true;
+        MenuController.controller = null;
         MusicPlayer.stopAllMusic();
     }
 
@@ -319,7 +340,7 @@ public class GameController extends RunnableSceneController implements Initializ
         }
         else{
             DatabaseConnection.updateLeaderboard(addNameField.getText(), snake.getScore());
-            SnakeGameApp.stageManager.loadScene("/fxml/Menu.fxml");
+            SnakeGameApp.stageManager.loadNewScene("/fxml/Menu.fxml");
         }
 
 
@@ -334,5 +355,21 @@ public class GameController extends RunnableSceneController implements Initializ
 
         alert.showAndWait();
     }
+
+
+    private void showEndGame() {
+        endImage.setVisible(true);
+        addNameField.setVisible(true);
+        addNameButton.setVisible(true);
+        endText.setVisible(true);
+    }
+
+    public static void hideAll(AnchorPane anchorPane) {
+        for (Node node : anchorPane.getChildren()) {
+            // Set visibility to false for all nodes
+            node.setVisible(false);
+        }
+    }
+
 
 }

@@ -111,7 +111,7 @@ public class LeaderboardController extends RunnableSceneController implements In
     }
 
     public void goBack(MouseEvent mouseEvent) {
-        SnakeGameApp.stageManager.loadScene("/fxml/Menu.fxml");
+        SnakeGameApp.stageManager.loadNewScene("/fxml/Menu.fxml");
     }
 }
 

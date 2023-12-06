@@ -5,32 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45f4b637-e193-424b-96c8-f43350f6fe65" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/apache_poi_ooxml.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/local_leaderboard.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/Controllers/DatabaseConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/Controllers/LeaderboardController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/Models/PlayerModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ColourTheme.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/backButton.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/Leaderboard.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/Controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/Controllers/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/Controllers/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/Controllers/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/StageManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/StageManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/Game.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/Menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/Menu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/Controllers/GameController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SnakeGame/Controllers/GameController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/Controllers/GameController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SnakeGame/Controllers/GameController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/Controllers/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SnakeGame/Controllers/GameController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/Controllers/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SnakeGame/Controllers/MenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/SnakeGameApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SnakeGame/SnakeGameApp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/StageManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SnakeGame/StageManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fxml/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fxml/Game.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fxml/Menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fxml/Menu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/fxml/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/resources/fxml/Game.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/fxml/Menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/resources/fxml/Menu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +97,7 @@
       <workItem from="1701543679862" duration="347000" />
       <workItem from="1701604344771" duration="1556000" />
       <workItem from="1701630324480" duration="11668000" />
-      <workItem from="1701797247381" duration="2089000" />
+      <workItem from="1701797247381" duration="12861000" />
     </task>
     <servers />
   </component>

@@ -13,6 +13,7 @@ public class SnakeGameApp extends Application {
     @Override
     public void start(Stage primaryStage) {
         stageManager = new StageManager(primaryStage);
-        stageManager.loadScene("/fxml/Menu.fxml");
+        stageManager.loadNewScene("/fxml/Menu.fxml");
     };
+
 }
