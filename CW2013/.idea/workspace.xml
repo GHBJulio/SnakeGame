@@ -97,7 +97,7 @@
       <workItem from="1701543679862" duration="347000" />
       <workItem from="1701604344771" duration="1556000" />
       <workItem from="1701630324480" duration="11668000" />
-      <workItem from="1701797247381" duration="18955000" />
+      <workItem from="1701797247381" duration="27239000" />
     </task>
     <servers />
   </component>
@@ -129,11 +129,6 @@
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />
           <option name="timeStamp" value="2" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/SnakeGame/Models/ImageUtil.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

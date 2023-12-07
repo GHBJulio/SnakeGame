@@ -26,6 +26,6 @@
             <Font size="45.0" />
          </font>
       </Label>
-      <Button layoutX="344.0" layoutY="220.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="112.0" text="New Background" visible="false" />
+      <Button fx:id="backgroundButton" layoutX="344.0" layoutY="220.0" mnemonicParsing="false" onAction="#randomBackground" prefHeight="35.0" prefWidth="112.0" text="New Background" visible="false" />
    </children>
 </AnchorPane>

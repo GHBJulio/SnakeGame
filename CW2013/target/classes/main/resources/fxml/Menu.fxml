@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefWidth="800.0" prefHeight="500.0" maxWidth="800.0" maxHeight="500.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"  fx:controller="SnakeGame.Controllers.MenuController">
+<AnchorPane maxHeight="500.0" maxWidth="800.0" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SnakeGame.Controllers.MenuController">
    <children>
       <ImageView fitHeight="560.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -26,5 +26,6 @@
             <Font size="45.0" />
          </font>
       </Label>
+      <Button fx:id="backgroundButton" layoutX="344.0" layoutY="220.0" mnemonicParsing="false" onAction="#randomBackground" prefHeight="35.0" prefWidth="112.0" text="New Background" visible="false" />
    </children>
 </AnchorPane>

@@ -1,5 +1,6 @@
 package SnakeGame.Controllers;
 
+import SnakeGame.Models.ImageUtil;
 import SnakeGame.Models.SnakeModel;
 import SnakeGame.RunnableSceneController;
 import SnakeGame.SnakeGameApp;
@@ -11,8 +12,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 public class MenuController extends RunnableSceneController implements Initializable {
@@ -21,7 +25,10 @@ public class MenuController extends RunnableSceneController implements Initializ
     public Button leaderBoardButton;
 
     public static GameController controller;
+    public Button backgroundButton;
 
+    private int previousRandom;
+    private int newRandom;
     @FXML
     public void goToGame(ActionEvent actionEvent) {
 
@@ -56,10 +63,13 @@ public class MenuController extends RunnableSceneController implements Initializ
         if (controller != null && controller.gamePaused) {
             playButton.setText("Resume");
             leaderBoardButton.setVisible(false);
+            backgroundButton.setVisible(true);
         } else {
             playButton.setText("Play");
             leaderBoardButton.setVisible(true);
         }
+        newRandom = 0;
+        previousRandom = 0;
     }
 
         public void alertProgress()
@@ -81,4 +91,19 @@ public class MenuController extends RunnableSceneController implements Initializ
                 }
             });
         }
+
+    public void randomBackground(ActionEvent actionEvent) {
+        if (controller != null && controller.gamePaused) {
+            Random random = new Random();
+            while(previousRandom == newRandom)
+            {
+                newRandom = random.nextInt(5) + 17;
+            }
+            System.out.println("New" + newRandom);
+            System.out.println("Previous" + previousRandom);
+            previousRandom = newRandom;
+            ImageView image = new ImageView(ImageUtil.images.get(String.valueOf(newRandom)));
+            controller.backgroundImageView.setImage(image.getImage());
+        }
+    }
 }

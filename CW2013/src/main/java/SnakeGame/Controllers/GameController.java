@@ -1,8 +1,6 @@
 package SnakeGame.Controllers;
 
-import SnakeGame.Models.FoodModel;
-import SnakeGame.Models.MusicPlayer;
-import SnakeGame.Models.SnakeModel;
+import SnakeGame.Models.*;
 import SnakeGame.RunnableSceneController;
 import SnakeGame.SnakeGameApp;
 import javafx.application.Platform;
@@ -29,6 +27,8 @@ import java.util.ResourceBundle;
 public class GameController extends RunnableSceneController implements Initializable {
     @FXML
     public AnchorPane rootPane;
+    @FXML
+    public ImageView backgroundImageView;
 
     private MenuController menu;
     @FXML
@@ -37,6 +37,8 @@ public class GameController extends RunnableSceneController implements Initializ
     public javafx.scene.control.Button addNameButton;
 
     private FoodModel food;
+
+    private ObstaclesModel obstacle;
     public Text endText;
     public Text scoreLabel;
     private SnakeModel snake;
@@ -49,6 +51,8 @@ public class GameController extends RunnableSceneController implements Initializ
     private ImageView foodImage;
 
     private ImageView bodyImage;
+
+    private ImageView obstacleImage;
     private Thread gameThread;
 
     @FXML
@@ -62,6 +66,8 @@ public class GameController extends RunnableSceneController implements Initializ
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         MenuController.controller = this;
+        ImageView image = new ImageView(ImageUtil.images.get("19"));
+        backgroundImageView.setImage(image.getImage());
         gameRunning = true;
         gamePaused = false;
         snake = new SnakeModel(100, 100);
@@ -69,8 +75,10 @@ public class GameController extends RunnableSceneController implements Initializ
         head.setX(snake.getHeadX());
         head.setY(snake.getHeadY());
         food = new FoodModel();
+        obstacle = new ObstaclesModel();
         //musicPlayer1 = new MusicPlayer("src/main/resources/frogger.mp3");
         //musicPlayer1.play();
+        drawObstacle();
         startGame();
     }
 
@@ -220,6 +228,15 @@ public class GameController extends RunnableSceneController implements Initializ
             foodImage.setLayoutX(food.getHeadX());
             foodImage.setLayoutY(food.getHeadY());
             rootPane.getChildren().add(foodImage);
+        }
+    }
+
+    public void drawObstacle() {
+        if (!rootPane.getChildren().contains(obstacleImage)) {
+            obstacleImage = new ImageView(obstacle.getImage());
+            obstacleImage.setLayoutX(obstacle.getHeadX());
+            obstacleImage.setLayoutY(obstacle.getHeadY());
+            rootPane.getChildren().add(obstacleImage);
         }
     }
 

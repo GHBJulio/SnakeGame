@@ -35,6 +35,13 @@ public class  ImageUtil {
 		images.put("15", getImage("food-strawberry.png"));
 		images.put("16", getImage("food-watermelon.png"));
 		images.put("17", getImage("UI-background.png"));
+		images.put("18", getImage("UI-background12.jpg"));
+		images.put("19", getImage("UI-background2.png"));
+		images.put("20", getImage("UI-background3.jpg"));
+		images.put("21", getImage("UI-background4.jpg"));
+		images.put("22", getImage("bomb.png"));
+		images.put("23", getImage("bomb1.png"));
+		images.put("24", getImage("bonfire.png"));
 		images.put("game-scene-01", getImage("game-scene-01.jpg"));
 	}
 
