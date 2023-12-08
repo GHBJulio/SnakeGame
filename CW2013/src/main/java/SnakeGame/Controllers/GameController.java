@@ -36,9 +36,9 @@ public class GameController extends RunnableSceneController implements Initializ
     @FXML
     public javafx.scene.control.Button addNameButton;
 
-    private FoodModel food;
+    private ItemsModel food;
 
-    private ObstaclesModel obstacle;
+    private ItemsModel obstacle;
     public Text endText;
     public Text scoreLabel;
     private SnakeModel snake;
@@ -74,16 +74,16 @@ public class GameController extends RunnableSceneController implements Initializ
         head = snake.getImgSnakeHead();
         head.setX(snake.getHeadX());
         head.setY(snake.getHeadY());
-        food = new FoodModel();
-        obstacle = new ObstaclesModel();
+        food = new ItemsModel();
+        obstacle = new ItemsModel();
         //musicPlayer1 = new MusicPlayer("src/main/resources/frogger.mp3");
         //musicPlayer1.play();
-        drawObstacle();
         startGame();
     }
 
     private void startGame()
     {
+        //animation timer
         gameThread = new Thread(() -> {
             while (gameRunning) {
                 if (!gamePaused) {
@@ -91,7 +91,7 @@ public class GameController extends RunnableSceneController implements Initializ
                     outofBounds();
                 }
                     try {
-                        Thread.sleep(1000 / 30);
+                        Thread.sleep(1000 / 25);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -106,6 +106,9 @@ public class GameController extends RunnableSceneController implements Initializ
             public void handle(KeyEvent e) {
                 if (!gamePaused) {
                     switch (e.getCode()) {
+                        case ESCAPE:
+                            togglePause();
+                            break;
                         case UP:
                             if (!snake.isDown()) {
                                 snake.setUp(true);
@@ -170,18 +173,29 @@ public class GameController extends RunnableSceneController implements Initializ
                 createSnake();
                 actualize();
                 if (food.isAlive()) {
+                    if(food.isAlive() && !obstacle.isAlive())
+                    {
+                        drawObstacle();
+                        obstacleHit(snake);
+                        deleteObstacle();
+                        obstacle = new ItemsModel();
+                    }
                     drawFood();
-                   ImageView newSnakeBody = eaten(snake);
-                   if (newSnakeBody != null)
-                   {
-                       rootPane.getChildren().add(newSnakeBody);
-                   }
+                    drawObstacle();
+                    obstacleHit(snake);
+                    ImageView newSnakeBody = eaten(snake);
+                    if (newSnakeBody != null) {
+                        rootPane.getChildren().add(newSnakeBody);
+                    }
                 } else {
-                    deleteFood();
-                    food = new FoodModel();
-                }
-                actualizeBody();
-                move();
+                        deleteObstacle();
+                        deleteFood();
+                        obstacle = new ItemsModel();
+                        food = new ItemsModel();
+                    }
+                    actualizeBody();
+                    move();
+
             } else {
                 gameEnded();
             }
@@ -202,7 +216,7 @@ public class GameController extends RunnableSceneController implements Initializ
 
     public ImageView eaten(SnakeModel mySnake)	{
         javafx.scene.shape.Rectangle snakeRect = mySnake.getRectangle();
-        Rectangle foodRect = food.foodRect();
+        Rectangle foodRect = food.ItemRectangle();
 
         if (foodRect.getBoundsInParent().intersects(snakeRect.getBoundsInParent()) && food.isAlive() && mySnake.isAlive()) {
             MusicPlayer.getMusicPlay("src/main/resources/snakeEat.mp3", false);
@@ -218,10 +232,47 @@ public class GameController extends RunnableSceneController implements Initializ
         return null;
     }
 
+
+    public void obstacleHit(SnakeModel mySnake)	{
+        javafx.scene.shape.Rectangle snakeRect = mySnake.getRectangle();
+        Rectangle obstacleRect = obstacle.ItemRectangle();
+
+        if (obstacleRect.getBoundsInParent().intersects(snakeRect.getBoundsInParent()) && obstacle.isAlive() && mySnake.isAlive()) {
+            MusicPlayer.getMusicPlay("src/main/resources/snakeEat.mp3", false);
+            obstacle.setAlive(false);
+            int lastIndexImage = mySnake.bodyPointImages.size() - 1;
+            int lastIndex = mySnake.bodyPoints.size() - 1;
+            System.out.println(mySnake.getSnakeLength());
+
+
+            // Check if the snake's length is greater than 1
+            if (mySnake.getSnakeLength() - 1 >= 1) {
+                mySnake.changeLength(mySnake.getSnakeLength() - 1);
+                mySnake.bodyPoints.remove(lastIndex);
+                mySnake.setScore(mySnake.getScore() - 1);
+                // Remove the oldest bodyImage
+                ImageView removedBodyImage = mySnake.bodyPointImages.remove(lastIndexImage);
+                // Remove it from the rootPane (or your container)
+                rootPane.getChildren().remove(removedBodyImage);
+            }
+            else if (mySnake.getSnakeLength() - 1 < 1)
+            {
+                gameEnded();
+            }
+        }
+
+    }
+
     public void deleteFood()
     {
         rootPane.getChildren().remove(foodImage);
     }
+
+    public void deleteObstacle()
+    {
+        rootPane.getChildren().remove(obstacleImage);
+    }
+
     public void drawFood() {
         if (!rootPane.getChildren().contains(foodImage)) {
             foodImage = new ImageView(food.getImage());
@@ -233,7 +284,7 @@ public class GameController extends RunnableSceneController implements Initializ
 
     public void drawObstacle() {
         if (!rootPane.getChildren().contains(obstacleImage)) {
-            obstacleImage = new ImageView(obstacle.getImage());
+            obstacleImage = new ImageView(obstacle.getObstacleImage());
             obstacleImage.setLayoutX(obstacle.getHeadX());
             obstacleImage.setLayoutY(obstacle.getHeadY());
             rootPane.getChildren().add(obstacleImage);
