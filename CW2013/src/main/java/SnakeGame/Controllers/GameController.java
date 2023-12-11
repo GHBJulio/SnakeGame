@@ -17,7 +17,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
@@ -29,43 +28,37 @@ public class GameController extends RunnableSceneController implements Initializ
     public AnchorPane rootPane;
     @FXML
     public ImageView backgroundImageView;
-
     private MenuController menu;
     @FXML
     public javafx.scene.control.TextField addNameField;
     @FXML
     public javafx.scene.control.Button addNameButton;
-
-    private ItemsModel food;
-
-    private ItemsModel obstacle;
     public Text endText;
     public Text scoreLabel;
+    public int scoreMin;
     private SnakeModel snake;
-
+    private ItemsController items;
     private boolean gameRunning;
-
     public boolean gamePaused;
     private ImageView head;
-
     private ImageView foodImage;
-
     private ImageView bodyImage;
-
     private ImageView obstacleImage;
     private Thread gameThread;
-
     @FXML
     private ImageView endImage;
-
     private MusicPlayer musicPlayer1;
-    private MenuController controller;
 
-
+    // default speed 1.0
+    public double speedFactor;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        scoreMin = 5;
+        speedFactor = 1.0;
+        items = new ItemsController();
         MenuController.controller = this;
+        items.controller = this;
         ImageView image = new ImageView(ImageUtil.images.get("19"));
         backgroundImageView.setImage(image.getImage());
         gameRunning = true;
@@ -74,8 +67,6 @@ public class GameController extends RunnableSceneController implements Initializ
         head = snake.getImgSnakeHead();
         head.setX(snake.getHeadX());
         head.setY(snake.getHeadY());
-        food = new ItemsModel();
-        obstacle = new ItemsModel();
         //musicPlayer1 = new MusicPlayer("src/main/resources/frogger.mp3");
         //musicPlayer1.play();
         startGame();
@@ -91,7 +82,7 @@ public class GameController extends RunnableSceneController implements Initializ
                     outofBounds();
                 }
                     try {
-                        Thread.sleep(1000 / 25);
+                        Thread.sleep((long) (1000 / (30 * speedFactor)));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -172,27 +163,36 @@ public class GameController extends RunnableSceneController implements Initializ
             if (snake.isAlive()) {
                 createSnake();
                 actualize();
-                if (food.isAlive()) {
-                    if(food.isAlive() && !obstacle.isAlive())
+                if (items.food.isAlive()) {
+                    if(items.food.isAlive() && !items.obstacle.isAlive())
                     {
-                        drawObstacle();
-                        obstacleHit(snake);
-                        deleteObstacle();
-                        obstacle = new ItemsModel();
+                        items.drawObstacle();
+                        items.obstacleHit(snake);
+                        items.deleteObstacle();
+                        items.obstacle = new ItemsModel();
                     }
-                    drawFood();
-                    drawObstacle();
-                    obstacleHit(snake);
-                    ImageView newSnakeBody = eaten(snake);
+                    items.drawFood();
+                    items.drawObstacle();
+                    items.obstacleHit(snake);
+                    ImageView newSnakeBody = items.eaten(snake);
                     if (newSnakeBody != null) {
                         rootPane.getChildren().add(newSnakeBody);
                     }
                 } else {
-                        deleteObstacle();
-                        deleteFood();
-                        obstacle = new ItemsModel();
-                        food = new ItemsModel();
+                        items.deleteObstacle();
+                        items.deleteFood();
+                        items.obstacle = new ItemsModel();
+                        items.food = new ItemsModel();
                     }
+                if (items.slowMo.isAlive() && snake.score == scoreMin)
+                {
+                    items.drawSloMo();
+                    items.slowMoHit(snake);
+                }
+                else{
+                    items.deleteSlow();
+                    items.slowMo = new ItemsModel();
+                }
                     actualizeBody();
                     move();
 
@@ -214,82 +214,6 @@ public class GameController extends RunnableSceneController implements Initializ
         //move();
     }
 
-    public ImageView eaten(SnakeModel mySnake)	{
-        javafx.scene.shape.Rectangle snakeRect = mySnake.getRectangle();
-        Rectangle foodRect = food.ItemRectangle();
-
-        if (foodRect.getBoundsInParent().intersects(snakeRect.getBoundsInParent()) && food.isAlive() && mySnake.isAlive()) {
-            MusicPlayer.getMusicPlay("src/main/resources/snakeEat.mp3", false);
-            food.setAlive(false);
-            ImageView bodyImage = new ImageView(mySnake.getBody());
-            mySnake.bodyPoints.add(new Point(mySnake.getHeadX(), mySnake.getHeadY()));
-            mySnake.bodyPointImages.add(bodyImage);
-            mySnake.changeLength(mySnake.getSnakeLength() + 1);
-            mySnake.setScore(mySnake.getScore() + 1);
-            return bodyImage;
-        }
-
-        return null;
-    }
-
-
-    public void obstacleHit(SnakeModel mySnake)	{
-        javafx.scene.shape.Rectangle snakeRect = mySnake.getRectangle();
-        Rectangle obstacleRect = obstacle.ItemRectangle();
-
-        if (obstacleRect.getBoundsInParent().intersects(snakeRect.getBoundsInParent()) && obstacle.isAlive() && mySnake.isAlive()) {
-            MusicPlayer.getMusicPlay("src/main/resources/snakeEat.mp3", false);
-            obstacle.setAlive(false);
-            int lastIndexImage = mySnake.bodyPointImages.size() - 1;
-            int lastIndex = mySnake.bodyPoints.size() - 1;
-            System.out.println(mySnake.getSnakeLength());
-
-
-            // Check if the snake's length is greater than 1
-            if (mySnake.getSnakeLength() - 1 >= 1) {
-                mySnake.changeLength(mySnake.getSnakeLength() - 1);
-                mySnake.bodyPoints.remove(lastIndex);
-                mySnake.setScore(mySnake.getScore() - 1);
-                // Remove the oldest bodyImage
-                ImageView removedBodyImage = mySnake.bodyPointImages.remove(lastIndexImage);
-                // Remove it from the rootPane (or your container)
-                rootPane.getChildren().remove(removedBodyImage);
-            }
-            else if (mySnake.getSnakeLength() - 1 < 1)
-            {
-                gameEnded();
-            }
-        }
-
-    }
-
-    public void deleteFood()
-    {
-        rootPane.getChildren().remove(foodImage);
-    }
-
-    public void deleteObstacle()
-    {
-        rootPane.getChildren().remove(obstacleImage);
-    }
-
-    public void drawFood() {
-        if (!rootPane.getChildren().contains(foodImage)) {
-            foodImage = new ImageView(food.getImage());
-            foodImage.setLayoutX(food.getHeadX());
-            foodImage.setLayoutY(food.getHeadY());
-            rootPane.getChildren().add(foodImage);
-        }
-    }
-
-    public void drawObstacle() {
-        if (!rootPane.getChildren().contains(obstacleImage)) {
-            obstacleImage = new ImageView(obstacle.getObstacleImage());
-            obstacleImage.setLayoutX(obstacle.getHeadX());
-            obstacleImage.setLayoutY(obstacle.getHeadY());
-            rootPane.getChildren().add(obstacleImage);
-        }
-    }
 
 
     public void move()
@@ -391,8 +315,7 @@ public class GameController extends RunnableSceneController implements Initializ
         }
     }
 
-
-    private void gameEnded()
+    public void gameEnded()
     {
         hideAll(rootPane);
         showEndGame();
@@ -403,17 +326,12 @@ public class GameController extends RunnableSceneController implements Initializ
 
     public void submitName(ActionEvent actionEvent) throws IOException {
         DatabaseConnection.createLeaderboard();
-        if (!addNameField.getText().matches("[a-zA-Z0-9 ]+") || addNameField.getText() == null || addNameField.getText().isEmpty() || addNameField.getText().length() > 15 || addNameField.getText().trim().isEmpty())
-        {
+        if (!addNameField.getText().matches("[a-zA-Z0-9 ]+") || addNameField.getText() == null || addNameField.getText().isEmpty() || addNameField.getText().length() > 15 || addNameField.getText().trim().isEmpty()) {
             showInvalidInputAlert();
-        }
-        else{
+        } else {
             DatabaseConnection.updateLeaderboard(addNameField.getText(), snake.getScore());
             SnakeGameApp.stageManager.loadNewScene("/fxml/Menu.fxml");
         }
-
-
-
     }
 
     public static void showInvalidInputAlert() {

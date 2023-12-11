@@ -4,16 +4,22 @@ package SnakeGame.Models;
 import java.util.Random;
 
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 public class ItemsModel extends Entity {
 
     private boolean isAlive;
-
     private Image imageObstacle;
+    private Image imageSlowMo;
+    private int newRandom;
+    private int previousRandom;
 
     public ItemsModel() {
+        newRandom = 0;
+        previousRandom = 0;
         isAlive = true;
         imageObstacle = getRandomObstacle();
+        imageSlowMo = getSlowMoImage();
         this.image = getRandomFoodImage();
         this.w = (int) image.getWidth();
         this.h = (int) image.getHeight();
@@ -21,9 +27,17 @@ public class ItemsModel extends Entity {
         this.headY = getRandomYPosition();
     }
 
+    public Image getSlowMoImage() {
+        return ImageUtil.images.get("25");
+    }
+
     private Image getRandomObstacle() {
         Random random = new Random();
-        return ImageUtil.images.get("22");
+        while(newRandom == previousRandom) {
+            newRandom = random.nextInt(3) + 22;
+        }
+        previousRandom = newRandom;
+        return ImageUtil.images.get(String.valueOf(newRandom));
     }
 
     private Image getRandomFoodImage() {

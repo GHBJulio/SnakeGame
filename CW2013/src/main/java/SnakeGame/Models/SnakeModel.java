@@ -32,10 +32,10 @@ public class SnakeModel extends Entity {
         this.w = (int) image.getWidth();
         this.h = (int) image.getHeight();
 
-        this.speed_XY = 1;
+        this.speed_XY = 2;
         this.snakeLength = 1;
 
-        this.num = w / 2;
+        this.num = w / speed_XY;
     }
 
     public Image getBody()
@@ -49,6 +49,10 @@ public class SnakeModel extends Entity {
     }
     public void setScore(int score) {
         this.score = score;
+    }
+
+    public void setSpeed_XY(int speed_XY) {
+        this.speed_XY = speed_XY;
     }
 
     public void setAlive(boolean alive) {
