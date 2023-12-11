@@ -10,7 +10,6 @@ public class ItemsModel extends Entity {
 
     private boolean isAlive;
     private Image imageObstacle;
-    private Image imageSlowMo;
     private int newRandom;
     private int previousRandom;
 
@@ -19,7 +18,6 @@ public class ItemsModel extends Entity {
         previousRandom = 0;
         isAlive = true;
         imageObstacle = getRandomObstacle();
-        imageSlowMo = getSlowMoImage();
         this.image = getRandomFoodImage();
         this.w = (int) image.getWidth();
         this.h = (int) image.getHeight();
@@ -29,6 +27,10 @@ public class ItemsModel extends Entity {
 
     public Image getSlowMoImage() {
         return ImageUtil.images.get("25");
+    }
+
+    public Image getFastSpeedImage() {
+        return ImageUtil.images.get("26");
     }
 
     private Image getRandomObstacle() {

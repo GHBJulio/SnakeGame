@@ -174,17 +174,14 @@ public class GameController extends RunnableSceneController implements Initializ
                     items.drawFood();
                     items.drawObstacle();
                     items.obstacleHit(snake);
-                    ImageView newSnakeBody = items.eaten(snake);
-                    if (newSnakeBody != null) {
-                        rootPane.getChildren().add(newSnakeBody);
-                    }
+                    items.eaten(snake);
                 } else {
                         items.deleteObstacle();
                         items.deleteFood();
                         items.obstacle = new ItemsModel();
                         items.food = new ItemsModel();
                     }
-                if (items.slowMo.isAlive() && snake.score == scoreMin)
+                if (items.slowMo.isAlive() && snake.score == scoreMin && speedFactor > 1.0)
                 {
                     items.drawSloMo();
                     items.slowMoHit(snake);
@@ -192,6 +189,21 @@ public class GameController extends RunnableSceneController implements Initializ
                 else{
                     items.deleteSlow();
                     items.slowMo = new ItemsModel();
+                }
+                if (items.fastSpeed.isAlive() && snake.score == scoreMin + 5 && speedFactor < 1.0)
+                {
+                    items.drawFastSpeed();
+                    items.fastSpeedHit(snake);
+                }
+                else
+                {
+                    items.deleteFastSpeed();
+                    items.fastSpeed = new ItemsModel();
+                }
+                if (items.doublePoints.isAlive() && snake.score == scoreMin + 10)
+                {
+                    items.drawDoublePoints();
+                    items.doublePointsHit(snake);
                 }
                     actualizeBody();
                     move();
