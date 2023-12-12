@@ -163,6 +163,7 @@ public class GameController extends RunnableSceneController implements Initializ
             if (snake.isAlive()) {
                 createSnake();
                 actualize();
+                System.out.println(scoreMin);
                 if (items.food.isAlive()) {
                     if(items.food.isAlive() && !items.obstacle.isAlive())
                     {
@@ -181,7 +182,7 @@ public class GameController extends RunnableSceneController implements Initializ
                         items.obstacle = new ItemsModel();
                         items.food = new ItemsModel();
                     }
-                if (items.slowMo.isAlive() && snake.score == scoreMin && speedFactor > 1.0)
+                if (items.slowMo.isAlive() && snake.score == scoreMin && speedFactor == 1.0)
                 {
                     items.drawSloMo();
                     items.slowMoHit(snake);
@@ -190,7 +191,7 @@ public class GameController extends RunnableSceneController implements Initializ
                     items.deleteSlow();
                     items.slowMo = new ItemsModel();
                 }
-                if (items.fastSpeed.isAlive() && snake.score == scoreMin + 5 && speedFactor < 1.0)
+                if (items.fastSpeed.isAlive() && snake.score == scoreMin + 4 && speedFactor == 1.0)
                 {
                     items.drawFastSpeed();
                     items.fastSpeedHit(snake);
@@ -200,10 +201,14 @@ public class GameController extends RunnableSceneController implements Initializ
                     items.deleteFastSpeed();
                     items.fastSpeed = new ItemsModel();
                 }
-                if (items.doublePoints.isAlive() && snake.score == scoreMin + 10)
+                if (items.doublePoints.isAlive() && snake.score == scoreMin + 6)
                 {
                     items.drawDoublePoints();
                     items.doublePointsHit(snake);
+                }
+                else {
+                    items.deleteDoublePoints();
+                    items.doublePoints = new ItemsModel();
                 }
                     actualizeBody();
                     move();

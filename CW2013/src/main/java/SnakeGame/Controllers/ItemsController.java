@@ -25,9 +25,8 @@ public class ItemsController extends RunnableSceneController{
     private ImageView obstacleImage;
     private ImageView slowImage;
     private ImageView fastImage;
-
     private ImageView foodImage;
-
+    private ImageView doublePointsImage;
     public boolean isDoublePoints;
     public ItemsController()
     {
@@ -76,7 +75,7 @@ public class ItemsController extends RunnableSceneController{
             MusicPlayer.getMusicPlay("src/main/resources/slowMotion.mp3", false);
             slowMo.setAlive(false);
             System.out.println("SLOW MOTION");
-            controller.scoreMin += 10;
+            controller.scoreMin += 7;
             controller.speedFactor = 0.5;
             // Adjust the duration as needed
             long doublePointsDuration = 5400;  // 5 seconds in milliseconds
@@ -95,13 +94,13 @@ public class ItemsController extends RunnableSceneController{
         Rectangle doubleRect = doublePoints.ItemRectangle();
 
         if (doubleRect.getBoundsInParent().intersects(snakeRect.getBoundsInParent()) && doublePoints.isAlive() && mySnake.isAlive()) {
-            MusicPlayer.getMusicPlay("src/main/resources/slowMotion.mp3", false);
+            MusicPlayer.getMusicPlay("src/main/resources/doublePoints.mp3", false);
             doublePoints.setAlive(false);
             isDoublePoints = true;
-            System.out.println("SLOW MOTION");
-            controller.scoreMin += 10;
+            System.out.println("DOUBLE POINTS");
+            controller.scoreMin += 5;
             // Adjust the duration as needed
-            long doublePointsDuration = 5500;  // 5 seconds in milliseconds
+            long doublePointsDuration = 6200;  // 5 seconds in milliseconds
 
             // Callback function when the timer expires
             EventHandler<ActionEvent> callback = event -> isDoublePoints = false;
@@ -116,12 +115,11 @@ public class ItemsController extends RunnableSceneController{
         Rectangle fastRect = fastSpeed.ItemRectangle();
 
         if (fastRect.getBoundsInParent().intersects(snakeRect.getBoundsInParent()) && fastSpeed.isAlive() && mySnake.isAlive()) {
-            //  MusicPlayer.getMusicPlay("src/main/resources/snakeEat.mp3", false); // another code for slowmo
-            fastSpeed.setAlive(false);
+              MusicPlayer.getMusicPlay("src/main/resources/boost.mp3", false);
             System.out.println("GO FAST");
             controller.scoreMin += 5;
             controller.speedFactor = 2.0;
-            long doublePointsDuration = 3000;  // 5 seconds in milliseconds
+            long doublePointsDuration = 6000;  // 5 seconds in milliseconds
 
             // Callback function when the timer expires
             EventHandler<ActionEvent> callback = event -> controller.speedFactor = 1.0;
@@ -172,11 +170,11 @@ public class ItemsController extends RunnableSceneController{
     }
 
     public void drawDoublePoints() {
-        if (!controller.rootPane.getChildren().contains(obstacleImage)) {
-            obstacleImage = new ImageView(obstacle.getObstacleImage());
-            obstacleImage.setLayoutX(obstacle.getHeadX());
-            obstacleImage.setLayoutY(obstacle.getHeadY());
-            controller.rootPane.getChildren().add(obstacleImage);
+        if (!controller.rootPane.getChildren().contains(doublePointsImage)) {
+            doublePointsImage = new ImageView(doublePoints.getDoublePointsImage());
+            doublePointsImage.setLayoutX(doublePoints.getHeadX());
+            doublePointsImage.setLayoutY(doublePoints.getHeadY());
+            controller.rootPane.getChildren().add(doublePointsImage);
         }
     }
 
@@ -225,6 +223,11 @@ public class ItemsController extends RunnableSceneController{
     public void deleteObstacle()
     {
         controller.rootPane.getChildren().remove(obstacleImage);
+    }
+
+    public void deleteDoublePoints()
+    {
+        controller.rootPane.getChildren().remove(doublePointsImage);
     }
 
 

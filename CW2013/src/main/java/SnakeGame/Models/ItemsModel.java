@@ -33,6 +33,10 @@ public class ItemsModel extends Entity {
         return ImageUtil.images.get("26");
     }
 
+    public Image getDoublePointsImage() {
+        return ImageUtil.images.get("27");
+    }
+
     private Image getRandomObstacle() {
         Random random = new Random();
         while(newRandom == previousRandom) {
