@@ -20,19 +20,42 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/**
+ * Controller class for managing the leaderboard scene.
+ * Extends RunnableSceneController for handling scene transitions.
+ * Implements Initializable to initialize the scene.
+ * Displays the top players and allows the user to navigate back to the main menu.
+ *
+ * @author Guilherme Julio
+ */
 public class LeaderboardController extends RunnableSceneController implements Initializable {
 
+    /**
+     * Default constructor for the GameController class.
+     */
+    public LeaderboardController() {}
+
+    /**
+     * The ImageView for the back button in the leaderboard scene.
+     */
     @FXML
     public ImageView backButton;
     @FXML
     private VBox leaderboardVBox; // Assuming you have this VBox in your FXML file
 
+    /**
+     * List containing the top players retrieved from the database.
+     */
     public static List<PlayerModel> topPlayers;
+
+    /**
+     * Initializes the leaderboard scene by retrieving top players and displaying them.
+     *
+     * @param url            The location used to resolve relative paths for the root object.
+     * @param resourceBundle The resources specific to this controller.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-
-        //List<Player> topPlayers = null;
         try {
             topPlayers = getTopPlayers();
             if (topPlayers == null || topPlayers.isEmpty()) {
@@ -45,15 +68,9 @@ public class LeaderboardController extends RunnableSceneController implements In
         }
     }
 
-//    private void displayTopPlayers() {
-//        for (Player player : topPlayers) {
-//            Label playerLabel = new Label(playerToString(player));
-//            playerLabel.setStyle("-fx-font-size: 30; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;"); // White text color
-//            playerLabel.setAlignment(Pos.CENTER);
-//            leaderboardVBox.getChildren().add(playerLabel);
-//        }
-//    }
-
+    /**
+     * Displays the top players on the leaderboard scene.
+     */
     private void displayTopPlayers() {
         // Create a GridPane to organize player information
         GridPane gridPane = new GridPane();
@@ -83,14 +100,26 @@ public class LeaderboardController extends RunnableSceneController implements In
         leaderboardVBox.getChildren().add(gridPane);
     }
 
+    /**
+     * Converts PlayerModel object to a string representation.
+     *
+     * @param player The PlayerModel object.
+     * @return A string representation of the player's name and score.
+     */
     private String playerToString(PlayerModel player) {
         return "Player Name: " + player.getPlayerName() + ", Score: " + player.getScore();
     }
 
+    /**
+     * Retrieves the top players from the database and sorts them based on their scores.
+     * Returns the top 10 players or less if there are fewer than 10.
+     *
+     * @return A list of top players.
+     * @throws IOException If an I/O error occurs while reading players from the database.
+     */
     public static List<PlayerModel> getTopPlayers() throws IOException {
         List<PlayerModel> players = DatabaseConnection.readPlayersFromLeaderboard();
-        if (players == null || players.isEmpty())
-        {
+        if (players == null || players.isEmpty()) {
             showAlert("Leaderboard not available yet.");
             return null;
         }
@@ -102,6 +131,11 @@ public class LeaderboardController extends RunnableSceneController implements In
         return players.subList(0, Math.min(players.size(), 10));
     }
 
+    /**
+     * Displays an alert with the given message.
+     *
+     * @param message The message to be displayed in the alert.
+     */
     private static void showAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Information");
@@ -110,12 +144,12 @@ public class LeaderboardController extends RunnableSceneController implements In
         alert.showAndWait();
     }
 
+    /**
+     * Navigates back to the main menu when the back button is clicked.
+     *
+     * @param mouseEvent The mouse event triggered by clicking the back button.
+     */
     public void goBack(MouseEvent mouseEvent) {
         SnakeGameApp.stageManager.loadNewScene("/fxml/Menu.fxml");
     }
 }
-
-
-
-
-

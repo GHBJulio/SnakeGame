@@ -23,35 +23,92 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+
+/**
+ * The GameController class is responsible for managing the game logic, user input, and scene transitions
+ * in the Snake Game application. It extends the RunnableSceneController and implements Initializable
+ * to handle JavaFX initialization.
+ *
+ * @author Guilherme Julio
+ */
 public class GameController extends RunnableSceneController implements Initializable {
+
+    /**
+     * Default constructor for the GameController class.
+     */
+    public GameController() {}
+
+    /**
+     * The AnchorPane used as a background pane
+     */
     @FXML
     public AnchorPane rootPane;
+    /**
+     * ImageView used to add an image for our Background.
+     */
     @FXML
     public ImageView backgroundImageView;
     private MenuController menu;
+    /**
+     * The field used to store a name.
+     */
     @FXML
     public javafx.scene.control.TextField addNameField;
+
+    /**
+     * The button used to add a name.
+     */
     @FXML
     public javafx.scene.control.Button addNameButton;
+    /**
+     * The Text displayed as the game reaches the end.
+     */
     public Text endText;
+
+    /**
+     * The Text used to display the score.
+     */
     public Text scoreLabel;
+
+    /**
+     * The int used to store minimum score for a condition.
+     */
     public int scoreMin;
     private SnakeModel snake;
     private ItemsController items;
     private boolean gameRunning;
+
+    /**
+     * The boolean used to check if the game is paused.
+     */
     public boolean gamePaused;
     private ImageView head;
     private ImageView bodyImage;
     private Thread gameThread;
     @FXML
     private ImageView endImage;
+    private int lastX = 0;
+    private int lastY = 0;
+
+    /**
+     * The instance used to play music simultaneously.
+     */
     public static MusicPlayer musicPlayer1;
 
-    // default speed 1.0
+    /**
+     * The double used to have a default speed for the snake.
+     */
     public double speedFactor;
 
+    /**
+     * Initializes the GameController with default settings when the associated JavaFX scene is loaded.
+     *
+     * @param url            The location used to resolve relative paths for the root object.
+     * @param resourceBundle The resources specific to this controller.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Initialization code here
         scoreMin = 5;
         speedFactor = 1.0;
         items = new ItemsController();
@@ -70,25 +127,34 @@ public class GameController extends RunnableSceneController implements Initializ
         startGame();
     }
 
-    private void startGame()
-    {
-        //animation timer
+    /**
+     * Starts the game loop in a separate thread, continuously updating the game state and rendering.
+     * The thread sleeps based on the speedFactor to control the game's frame rate.
+     */
+    private void startGame() {
+        // Animation timer
         gameThread = new Thread(() -> {
             while (gameRunning) {
                 if (!gamePaused) {
                     drawGame();
                     outofBounds();
                 }
-                    try {
-                        Thread.sleep((long) (1000 / (30 * speedFactor)));
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+                try {
+                    Thread.sleep((long) (1000 / (30 * speedFactor)));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
-            if (!gameRunning){ gameEnded();}
+            if (!gameRunning) {
+                gameEnded();
+            }
         });
     }
 
+    /**
+     * Overrides the run method of the RunnableSceneController to handle keyboard input for the game.
+     * Listens for key presses, such as arrow keys for controlling the snake and ESC for pausing the game.
+     */
     @Override
     public void run() {
         scene.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
@@ -106,7 +172,6 @@ public class GameController extends RunnableSceneController implements Initializ
                                 snake.setRight(false);
                             }
                             break;
-
                         case DOWN:
                             if (!snake.isUp()) {
                                 snake.setUp(false);
@@ -115,7 +180,6 @@ public class GameController extends RunnableSceneController implements Initializ
                                 snake.setRight(false);
                             }
                             break;
-
                         case LEFT:
                             if (!snake.isRight()) {
                                 snake.setUp(false);
@@ -124,7 +188,6 @@ public class GameController extends RunnableSceneController implements Initializ
                                 snake.setRight(false);
                             }
                             break;
-
                         case RIGHT:
                             if (!snake.isLeft()) {
                                 snake.setUp(false);
@@ -141,11 +204,20 @@ public class GameController extends RunnableSceneController implements Initializ
         });
         gameThread.start();
     }
-
+    /**
+     * Pauses or resumes the game when the pause button is clicked.
+     *
+     * @param mouseEvent The MouseEvent triggered by clicking the pause button.
+     */
     @FXML
     public void pauseGame(MouseEvent mouseEvent) {
-            togglePause();
+        togglePause();
     }
+
+    /**
+     * Toggles between pausing and resuming the game. Changes the gamePaused state accordingly.
+     * If the game is paused, loads the Menu scene; otherwise, prints "Resumed" to the console.
+     */
     private void togglePause()  {
         gamePaused = !gamePaused;
         if (gamePaused) {
@@ -156,6 +228,10 @@ public class GameController extends RunnableSceneController implements Initializ
         }
     }
 
+    /**
+     * Draws the game on the UI. Updates the game state, handles item interactions, and renders the snake.
+     * Invoked periodically to maintain real-time updates.
+     */
     public void drawGame() {
         Platform.runLater(() -> {
             if (snake.isAlive()) {
@@ -163,8 +239,7 @@ public class GameController extends RunnableSceneController implements Initializ
                 actualize();
                 System.out.println(scoreMin);
                 if (items.food.isAlive()) {
-                    if(items.food.isAlive() && !items.obstacle.isAlive())
-                    {
+                    if (items.food.isAlive() && !items.obstacle.isAlive()) {
                         items.drawObstacle();
                         items.obstacleHit(snake);
                         items.deleteObstacle();
@@ -175,41 +250,34 @@ public class GameController extends RunnableSceneController implements Initializ
                     items.obstacleHit(snake);
                     items.eaten(snake);
                 } else {
-                        items.deleteObstacle();
-                        items.deleteFood();
-                        items.obstacle = new ItemsModel();
-                        items.food = new ItemsModel();
-                    }
-                if (items.slowMo.isAlive() && snake.score == scoreMin && speedFactor == 1.0)
-                {
+                    items.deleteObstacle();
+                    items.deleteFood();
+                    items.obstacle = new ItemsModel();
+                    items.food = new ItemsModel();
+                }
+                if (items.slowMo.isAlive() && snake.score == scoreMin && speedFactor == 1.0) {
                     items.drawSloMo();
                     items.slowMoHit(snake);
-                }
-                else{
+                } else {
                     items.deleteSlow();
                     items.slowMo = new ItemsModel();
                 }
-                if (items.fastSpeed.isAlive() && snake.score == scoreMin + 4 && speedFactor == 1.0)
-                {
+                if (items.fastSpeed.isAlive() && snake.score == scoreMin + 4 && speedFactor == 1.0) {
                     items.drawFastSpeed();
                     items.fastSpeedHit(snake);
-                }
-                else
-                {
+                } else {
                     items.deleteFastSpeed();
                     items.fastSpeed = new ItemsModel();
                 }
-                if (items.doublePoints.isAlive() && snake.score == scoreMin + 6)
-                {
+                if (items.doublePoints.isAlive() && snake.score == scoreMin + 6) {
                     items.drawDoublePoints();
                     items.doublePointsHit(snake);
-                }
-                else {
+                } else {
                     items.deleteDoublePoints();
                     items.doublePoints = new ItemsModel();
                 }
-                    actualizeBody();
-                    move();
+                actualizeBody();
+                move();
 
             } else {
                 gameEnded();
@@ -218,7 +286,9 @@ public class GameController extends RunnableSceneController implements Initializ
         });
     }
 
-
+    /**
+     * Creates and renders the snake on the game screen. Checks for boundary violations and body collisions.
+     */
     public void createSnake(){
         outofBounds();
         eatBody();
@@ -226,68 +296,67 @@ public class GameController extends RunnableSceneController implements Initializ
         {
             rootPane.getChildren().add(head);
         }
-        //move();
     }
 
 
-
-    public void move()
-    {
+    /**
+     * Moves the snake based on its current direction.
+     * Updates the last known coordinates for future reference.
+     */
+    public void move() {
         lastX = snake.getHeadX();
         lastY = snake.getHeadY();
-        // make the snake move
-        if (snake.isUp())
-        {
+
+        // Make the snake move
+        if (snake.isUp()) {
             lastY = snake.getHeadY() + snake.getNum();
             snake.setHeadY(snake.getHeadY() - snake.getNum());
-        } else if (snake.isDown())
-        {
+        } else if (snake.isDown()) {
             lastY = snake.getHeadY() - snake.getNum();
             snake.setHeadY(snake.getHeadY() + snake.getNum());
-        } else if (snake.isLeft())
-        {
+        } else if (snake.isLeft()) {
             lastX = snake.getHeadX() + snake.getNum();
             snake.setHeadX(snake.getHeadX() - snake.getNum());
-        } else if (snake.isRight())
-        {
+        } else if (snake.isRight()) {
             lastX = snake.getHeadX() - snake.getNum();
             snake.setHeadX(snake.getHeadX() + snake.getNum());
         }
     }
-    private int lastX = 0;
-    private int lastY = 0;
 
-
-
-    public void drawScore()
-    {
+    /**
+     * Draws and updates the score on the UI.
+     */
+    public void drawScore() {
         scoreLabel.setText("Score: " + snake.getScore());
     }
 
-    public void actualizeBody()
-    {
-        for (int i = snake.bodyPoints.size() - 1; i >= 0; i--)
-        {
+    /**
+     * Updates the positions of the snake's body segments on the UI.
+     */
+    public void actualizeBody() {
+        for (int i = snake.bodyPoints.size() - 1; i >= 0; i--) {
             Point bodyPoint = snake.bodyPoints.get(i);
             bodyImage = snake.bodyPointImages.get(i);
-            if (i != 0)
-            {
+
+            if (i != 0) {
                 Point nextBodyPoint = snake.bodyPoints.get(i - 1);
                 bodyPoint.setLocation(nextBodyPoint.getX(), nextBodyPoint.getY());
-            }
-            else
-            {
+            } else {
                 bodyPoint.setLocation(lastX, lastY);
             }
+
             bodyImage.setLayoutX(bodyPoint.getX());
             bodyImage.setLayoutY(bodyPoint.getY());
         }
     }
 
-    private void actualize()
-    {
+    /**
+     * Updates the position and rotation of the snake's head on the UI.
+     */
+    private void actualize() {
         head.setX(snake.getHeadX());
         head.setY(snake.getHeadY());
+
         // Rotate the image based on the snake's direction
         double rotation = 0.0;
 
@@ -302,23 +371,25 @@ public class GameController extends RunnableSceneController implements Initializ
         }
 
         head.setRotate(rotation);
-        // Set the image of the head
         head.setImage(snake.getImgSnakeHead().getImage());
     }
 
-    private void outofBounds()
-    {
-        boolean xOut = (snake.getHeadX() <= 0 ||snake.getHeadX() >= (800 - snake.getW()));
-        boolean yOut = (snake.getHeadY() <= 0 || snake.getHeadY() >= (500 - snake.getH())); // updated version = boolean yOut = (y <= 0 || y >= (560 - h));
-        // old code yOut wasn't working properly as snake would not be able to eat food on top of the screen
-        if (xOut || yOut)
-        {
+    /**
+     * Checks if the snake is out of bounds and ends the game if true.
+     */
+    private void outofBounds() {
+        boolean xOut = (snake.getHeadX() <= 0 || snake.getHeadX() >= (800 - snake.getW()));
+        boolean yOut = (snake.getHeadY() <= 0 || snake.getHeadY() >= (500 - snake.getH()));
+
+        if (xOut || yOut) {
             gameEnded();
         }
     }
 
-    public void eatBody()
-    {
+    /**
+     * Checks for collisions between segments of the snake's body, marking the snake as not alive if detected.
+     */
+    public void eatBody() {
         if (snake.getSnakeLength() > 1) {
             for (Point point : snake.bodyPoints) {
                 for (Point point2 : snake.bodyPoints) {
@@ -330,8 +401,10 @@ public class GameController extends RunnableSceneController implements Initializ
         }
     }
 
-    public void gameEnded()
-    {
+    /**
+     * Ends the game, hides UI elements, and shows the end game screen.
+     */
+    public void gameEnded() {
         hideAll(rootPane);
         showEndGame();
         gamePaused = true;
@@ -339,9 +412,17 @@ public class GameController extends RunnableSceneController implements Initializ
         MusicPlayer.stopAllMusic();
     }
 
+    /**
+     * Submits the player's name to the leaderboard if it meets valid criteria; otherwise, shows an input alert.
+     *
+     * @param actionEvent The ActionEvent triggered by the submit name button.
+     * @throws IOException If an IO exception occurs.
+     */
     public void submitName(ActionEvent actionEvent) throws IOException {
         DatabaseConnection.createLeaderboard();
-        if (!addNameField.getText().matches("[a-zA-Z0-9 ]+") || addNameField.getText() == null || addNameField.getText().isEmpty() || addNameField.getText().length() > 15 || addNameField.getText().trim().isEmpty()) {
+        if (!addNameField.getText().matches("[a-zA-Z0-9 ]+") || addNameField.getText() == null ||
+                addNameField.getText().isEmpty() || addNameField.getText().length() > 15 ||
+                addNameField.getText().trim().isEmpty()) {
             showInvalidInputAlert();
         } else {
             DatabaseConnection.updateLeaderboard(addNameField.getText(), snake.getScore());
@@ -349,16 +430,21 @@ public class GameController extends RunnableSceneController implements Initializ
         }
     }
 
+    /**
+     * Shows an alert for invalid input when submitting the player's name.
+     */
     public static void showInvalidInputAlert() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Invalid Input");
         alert.setHeaderText(null);
-        alert.setContentText("Invalid name! Please 10 characters maximum and use only alphanumeric characters and spaces.");
+        alert.setContentText("Invalid name! Please use 10 characters maximum and only alphanumeric characters and spaces.");
 
         alert.showAndWait();
     }
 
-
+    /**
+     * Shows the end game screen with relevant UI elements.
+     */
     private void showEndGame() {
         endImage.setVisible(true);
         addNameField.setVisible(true);
@@ -366,11 +452,17 @@ public class GameController extends RunnableSceneController implements Initializ
         endText.setVisible(true);
     }
 
+    /**
+     * Hides all UI elements within the specified AnchorPane.
+     *
+     * @param anchorPane The AnchorPane containing UI elements to hide.
+     */
     public static void hideAll(AnchorPane anchorPane) {
         for (Node node : anchorPane.getChildren()) {
             // Set visibility to false for all nodes
             node.setVisible(false);
         }
     }
+
 
 }

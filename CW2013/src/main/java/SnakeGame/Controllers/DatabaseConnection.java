@@ -2,27 +2,44 @@ package SnakeGame.Controllers;
 
 import SnakeGame.Models.PlayerModel;
 import javafx.scene.control.Alert;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
-import java.util.*;
-
-
+/**
+ * This class manages the connection to the local leaderboard.
+ * It provides methods for creating, updating, and reading player data from the leaderboard.
+ *
+ * @author Guilherme Julio
+ */
 public class DatabaseConnection {
 
+    /**
+     * Default constructor for the DatabaseConnection class.
+     */
+    public DatabaseConnection() {
+    }
+
+    /** The path to the local leaderboard file. */
     public static String filePath = "local_leaderboard.xlsx";
+
+    /** The name of the sheet in the leaderboard file. */
     public static String SHEET_NAME = "Leaderboard";
+
+    /**
+     * Creates the leaderboard file if it doesn't exist.
+     *
+     * @return True if the leaderboard file already exists, false if it was created.
+     * @throws IOException If an I/O error occurs.
+     */
     public static boolean createLeaderboard() throws IOException {
         Path path = Paths.get(filePath);
 
@@ -40,7 +57,6 @@ public class DatabaseConnection {
         headerRow.createCell(0).setCellValue("Player Name");
         headerRow.createCell(1).setCellValue("Score");
 
-
         // Save the workbook
         try (FileOutputStream fileOut = new FileOutputStream(filePath)) {
             workbook.write(fileOut);
@@ -52,9 +68,14 @@ public class DatabaseConnection {
         return false;
     }
 
+    /**
+     * Updates the leaderboard with the provided player name and score.
+     *
+     * @param playerName The name of the player.
+     * @param score The player's score.
+     * @throws IOException If an I/O error occurs.
+     */
     public static void updateLeaderboard(String playerName, int score) throws IOException {
-       // Workbook workbook = WorkbookFactory.create(Objects.requireNonNull(DatabaseConnection.class.getResourceAsStream("/ExcelFiles/local_leaderboard.xlsx")));
-
         // Check if the file exists
         boolean fileExists = new File(filePath).exists();
 
@@ -68,9 +89,6 @@ public class DatabaseConnection {
             workbook = new XSSFWorkbook(new FileInputStream(filePath));
         }
         Sheet sheet = workbook.getSheet(SHEET_NAME);
-
-        //Iterator<Row> rowIterator = sheet.iterator();
-
 
         // Find the last row number with data
         int lastRowNum = sheet.getPhysicalNumberOfRows();
@@ -91,6 +109,12 @@ public class DatabaseConnection {
         workbook.close();
     }
 
+    /**
+     * Reads the player data from the leaderboard.
+     *
+     * @return A list of PlayerModel objects representing the players on the leaderboard.
+     * @throws IOException If an I/O error occurs.
+     */
     public static List<PlayerModel> readPlayersFromLeaderboard() throws IOException {
         List<PlayerModel> players = new ArrayList<>();
 
@@ -102,7 +126,6 @@ public class DatabaseConnection {
             return null;
         }
 
-
         try (FileInputStream fileInputStream = new FileInputStream(filePath);
              Workbook workbook = new XSSFWorkbook(fileInputStream)) {
 
@@ -112,7 +135,6 @@ public class DatabaseConnection {
                 // No data or only header row found
                 showAlert("Leaderboard not available yet.");
                 throw new IOException("Leaderboard is empty or not available yet.");
-
             }
 
             for (Row row : sheet) {
@@ -126,22 +148,15 @@ public class DatabaseConnection {
 
                 players.add(new PlayerModel(playerName, score));
             }
-
-            // printPlayers(players);
         }
 
         return players;
     }
-
-
-    private static void printPlayers(List<PlayerModel> players) {
-        for (PlayerModel player : players) {
-            System.out.println("Player Name: " + player.getPlayerName());
-            System.out.println("Score: " + player.getScore());
-            System.out.println("---------------------------");
-        }
-    }
-
+    /**
+     * Shows an information alert with the specified message.
+     *
+     * @param message The message to display in the alert.
+     */
     private static void showAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Information");
@@ -149,7 +164,4 @@ public class DatabaseConnection {
         alert.setContentText(message);
         alert.showAndWait();
     }
-
-
-
 }

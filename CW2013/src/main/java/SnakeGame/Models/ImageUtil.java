@@ -7,10 +7,21 @@ import javafx.scene.image.WritableImage;
 import java.util.HashMap;
 import java.util.Map;
 
-// well implemented class (add more images) (keep)
-// error handling needed.
+/**
+ * Utility class for managing and retrieving images used in the Snake Game.
+ * Provides a collection of images identified by string keys.
+ * The images are loaded using the class's ClassLoader from resource files.
+ * Handles errors by printing an error message and stack trace when an image fails to load.
+ * @author Guilherme Julio
+ */
 public class  ImageUtil {
+
+	/** Private constructor to prevent the creation of instances */
+	private ImageUtil() {}
+	/** A map to store images with corresponding string keys. */
 	public static Map<String, Image> images = new HashMap<>();
+
+
 
 	static {
 		// snake
@@ -50,6 +61,16 @@ public class  ImageUtil {
 		images.put("game-scene-01", getImage("game-scene-01.jpg"));
 	}
 
+
+	/**
+	 * Retrieves the Image associated with the specified imagePath.
+	 * Loads the image from the resource files using the ClassLoader.
+	 * Handles errors by printing an error message and stack trace when the image fails to load.
+	 *
+	 * @param imagePath The path to the image resource.
+	 * @return The Image object, or null if the image fails to load.
+	 */
+
 	public static Image getImage(String imagePath) {
 		try {
 			return new Image(ImageUtil.class.getClassLoader().getResourceAsStream(imagePath));
@@ -60,4 +81,4 @@ public class  ImageUtil {
 		}
 	}
 
-}
+	}
