@@ -41,13 +41,11 @@ public class GameController extends RunnableSceneController implements Initializ
     private boolean gameRunning;
     public boolean gamePaused;
     private ImageView head;
-    private ImageView foodImage;
     private ImageView bodyImage;
-    private ImageView obstacleImage;
     private Thread gameThread;
     @FXML
     private ImageView endImage;
-    private MusicPlayer musicPlayer1;
+    public static MusicPlayer musicPlayer1;
 
     // default speed 1.0
     public double speedFactor;

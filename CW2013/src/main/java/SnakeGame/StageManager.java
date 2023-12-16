@@ -5,29 +5,29 @@ import java.net.URL;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.effect.ColorAdjust;
 import javafx.stage.Stage;
 
 public class StageManager {
-	private Stage mainStage;
+	private static Stage mainStage;
 	private String title;
 
+	private static boolean blackWhite;
+
 	private Scene gameScene;
+
+	private static Scene gameSettings;
 
 	private Scene currentScene;
 
 	public StageManager(Stage mainStage) {
 		this(mainStage, "");
 	}
-
 	public StageManager(Stage mainStage, String title) {
 		this.mainStage = mainStage;
 		this.title = title;
+		blackWhite = false;
 	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
 	public void loadGameScene(String urlPath) {
 		URL url = getClass().getResource(urlPath);
 		if (url != null) {
@@ -35,19 +35,36 @@ public class StageManager {
 			// Additional logic for handling a loaded game scene
 		}
 	}
-
+	public void loadSettingsScene(String urlPath) {
+		URL url = getClass().getResource(urlPath);
+		if (url != null) {
+			gameSettings = loadSceneToStage(mainStage, url);
+			// Additional logic for handling a loaded game scene
+		}
+	}
+	public void resumeSettings() {
+		if (gameSettings != null) {
+			mainStage.setScene(gameSettings);
+			mainStage.show();
+		}
+	}
 	public void resumeGame() {
 		if (gameScene != null) {
+			if (blackWhite){
+				// Apply ColorAdjust filter to make the scene black and white
+				ColorAdjust colorAdjust = new ColorAdjust();
+				colorAdjust.setSaturation(-1); // Set saturation to -1 for grayscale
+				gameScene.getRoot().setEffect(colorAdjust);
+			}
 			mainStage.setScene(gameScene);
 			mainStage.show();
 		}
 	}
-
-
 	public Scene loadSceneToStage(Stage stage, URL url) {
 		if (url == null) {
 			return null;
 		}
+
 
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(url);
@@ -63,6 +80,12 @@ public class StageManager {
 		stage.setResizable(false);
 		stage.setScene(scene);
 		stage.setTitle(title);
+		if (blackWhite){
+				// Apply ColorAdjust filter to make the scene black and white
+				ColorAdjust colorAdjust = new ColorAdjust();
+				colorAdjust.setSaturation(-1); // Set saturation to -1 for grayscale
+				scene.getRoot().setEffect(colorAdjust);
+		}
 		stage.show();
 
 		RunnableSceneController controller = (RunnableSceneController) loader.getController();
@@ -73,11 +96,9 @@ public class StageManager {
 
 		return scene;
 	}
-
 	public void loadNewScene(String urlPath) {
 		loadNewScene(getClass().getResource(urlPath));
 	}
-
 	public Scene loadNewScene(URL url) {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(url);
@@ -92,6 +113,12 @@ public class StageManager {
 		mainStage.setResizable(false);
 		mainStage.setScene(scene);
 		mainStage.setTitle(title);
+		if (blackWhite){
+			// Apply ColorAdjust filter to make the scene black and white
+			ColorAdjust colorAdjust = new ColorAdjust();
+			colorAdjust.setSaturation(-1); // Set saturation to -1 for grayscale
+			scene.getRoot().setEffect(colorAdjust);
+		}
 		mainStage.show();
 
 		RunnableSceneController controller = (RunnableSceneController) loader.getController();
@@ -102,8 +129,28 @@ public class StageManager {
 
 		return scene;
 	}
+	public static void setBlackWhite(boolean bool)
+	{
+		System.out.println(blackWhite);
+		blackWhite = bool;
+	}
 
-	public Scene getCurrentScene() {
-		return currentScene;
+	public static void applyBlackWhite()
+	{
+			ColorAdjust colorAdjust = new ColorAdjust();colorAdjust.setSaturation(-1); // Set saturation to -1 for grayscale
+			gameSettings.getRoot().setEffect(colorAdjust);
+			mainStage.setScene(gameSettings);
+			mainStage.show();
+	}
+	public static void reverseBlackWhite()
+	{
+		gameSettings.getRoot().setEffect(null);
+		mainStage.setScene(gameSettings);
+		mainStage.show();
+	}
+	public static boolean getBlackWhite()
+	{
+		return blackWhite;
 	}
 }
+

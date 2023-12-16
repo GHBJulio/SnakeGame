@@ -45,6 +45,8 @@ public class  ImageUtil {
 		images.put("25", getImage("turtle.png"));
 		images.put("26", getImage("fast-time.png"));
 		images.put("27", getImage("double-point.png"));
+		images.put("28", getImage("double-point.png"));
+		images.put("29", getImage("double-point.png"));
 		images.put("game-scene-01", getImage("game-scene-01.jpg"));
 	}
 

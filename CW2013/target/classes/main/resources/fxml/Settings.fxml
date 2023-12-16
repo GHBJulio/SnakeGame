@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SnakeGame.Controllers.SettingsController">
+   <children>
+      <ImageView fx:id="backgroundImage" fitHeight="500.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../ColourTheme.jpg" />
+         </image>
+      </ImageView>
+      <Text layoutX="307.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Settings">
+         <font>
+            <Font size="54.0" />
+         </font>
+      </Text>
+      <Button fx:id="blackWhiteGameBtn" alignment="CENTER" layoutX="282.0" layoutY="111.0" mnemonicParsing="false" onAction="#blackWhiteMode" prefHeight="39.0" prefWidth="237.0" text="Black &amp; White">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+      <ImageView fx:id="volumeImage" fitHeight="54.0" fitWidth="55.0" layoutX="732.0" layoutY="30.0" onMouseClicked="#volumeClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../volume.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="muteButton" fitHeight="54.0" fitWidth="55.0" layoutX="732.0" layoutY="30.0" onMouseClicked="#muteClicked" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../mute.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="backButton" fitHeight="54.0" fitWidth="86.0" layoutX="14.0" layoutY="30.0" onMouseClicked="#goBack" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../backButton.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

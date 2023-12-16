@@ -14,9 +14,9 @@
             <Image url="@../MenuBackground.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="playButton" layoutX="344.0" layoutY="158.0" mnemonicParsing="false" onAction="#goToGame" prefHeight="35.0" prefWidth="112.0" text="Play" />
-      <Button fx:id="leaderBoardButton" layoutX="344.0" layoutY="220.0" mnemonicParsing="false" onAction="#goToLeaderboard" prefHeight="35.0" prefWidth="112.0" text="LeaderBoard" />
-      <Button fx:id="exitButton" layoutX="344.0" layoutY="289.0" mnemonicParsing="false" onAction="#exitApplication" prefHeight="35.0" prefWidth="112.0" text="Exit">
+      <Button fx:id="playButton" alignment="CENTER" layoutX="344.0" layoutY="137.0" mnemonicParsing="false" onAction="#goToGame" prefHeight="35.0" prefWidth="112.0" text="Play" />
+      <Button fx:id="leaderBoardButton" alignment="CENTER" layoutX="344.0" layoutY="192.0" mnemonicParsing="false" onAction="#goToLeaderboard" prefHeight="35.0" prefWidth="112.0" text="LeaderBoard" />
+      <Button fx:id="exitButton" alignment="CENTER" layoutX="344.0" layoutY="300.0" mnemonicParsing="false" onAction="#exitApplication" prefHeight="35.0" prefWidth="112.0" text="Exit">
          <font>
             <Font size="16.0" />
          </font>
@@ -26,6 +26,7 @@
             <Font size="45.0" />
          </font>
       </Label>
-      <Button fx:id="backgroundButton" layoutX="344.0" layoutY="220.0" mnemonicParsing="false" onAction="#randomBackground" prefHeight="35.0" prefWidth="112.0" text="New Background" visible="false" />
+      <Button fx:id="backgroundButton" alignment="CENTER" layoutX="344.0" layoutY="192.0" mnemonicParsing="false" onAction="#randomBackground" prefHeight="35.0" prefWidth="112.0" text="New Background" visible="false" />
+      <Button alignment="CENTER" layoutX="344.0" layoutY="245.0" mnemonicParsing="false" onAction="#goToSettings" prefHeight="35.0" prefWidth="112.0" text="Settings" />
    </children>
 </AnchorPane>

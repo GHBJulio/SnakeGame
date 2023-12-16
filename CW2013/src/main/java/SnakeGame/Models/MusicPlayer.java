@@ -12,6 +12,7 @@ public class MusicPlayer extends Thread {
 	private final String musicFilename;
 	private MediaPlayer mediaPlayer;
 	private static List<MusicPlayer> activeMusicPlayers = new ArrayList<>();
+	private static boolean isMuted = false;
 
 	public MusicPlayer(String filename) {
 		this.musicFilename = filename;
@@ -20,14 +21,16 @@ public class MusicPlayer extends Thread {
 	public void play() {
 		new Thread(() -> {
 			try {
-				Media media = new Media(new File(musicFilename).toURI().toString());
-				mediaPlayer = new MediaPlayer(media);
-				activeMusicPlayers.add(this);
+				if (!isMuted) {  // Check if not muted
+					Media media = new Media(new File(musicFilename).toURI().toString());
+					mediaPlayer = new MediaPlayer(media);
+					activeMusicPlayers.add(this);
 
-				// Restart the music when it reaches the end
-				mediaPlayer.setOnEndOfMedia(() -> mediaPlayer.seek(javafx.util.Duration.ZERO));
+					// Restart the music when it reaches the end
+					mediaPlayer.setOnEndOfMedia(() -> mediaPlayer.seek(javafx.util.Duration.ZERO));
 
-				mediaPlayer.play();
+					mediaPlayer.play();
+				}
 			} catch (Exception e) {
 				System.out.println(e);
 			}
@@ -37,24 +40,23 @@ public class MusicPlayer extends Thread {
 	public void playOnce() {
 		new Thread(() -> {
 			try {
-				Media media = new Media(new File(musicFilename).toURI().toString());
-				mediaPlayer = new MediaPlayer(media);
-				activeMusicPlayers.add(this);
+				if (!isMuted) {  // Check if not muted
+					Media media = new Media(new File(musicFilename).toURI().toString());
+					mediaPlayer = new MediaPlayer(media);
+					activeMusicPlayers.add(this);
 
-				mediaPlayer.play();
+					mediaPlayer.play();
+				}
 			} catch (Exception e) {
 				System.out.println(e);
 			}
 		}).start();
 	}
-
 	public static void getMusicPlay(String filename, boolean loop) {
 		MusicPlayer musicPlayer = new MusicPlayer(filename);
-		if (loop == true) {
+		if (loop) {
 			musicPlayer.play();
-		}
-		else if (loop == false)
-		{
+		} else {
 			musicPlayer.playOnce();
 		}
 	}
@@ -75,8 +77,6 @@ public class MusicPlayer extends Thread {
 		}
 	}
 
-
-
 	public static void stopAllMusic() {
 		synchronized (activeMusicPlayers) {
 			Iterator<MusicPlayer> iterator = activeMusicPlayers.iterator();
@@ -90,6 +90,23 @@ public class MusicPlayer extends Thread {
 		}
 	}
 
+	public void mute() {
+		if (mediaPlayer != null) {
+			mediaPlayer.setMute(true);
+			isMuted = true;
+		}
+	}
+
+	public void unmute() {
+		if (mediaPlayer != null) {
+			mediaPlayer.setMute(false);
+			isMuted = false;
+		}
+	}
+
+	public static void setMuted(boolean bool) {
+		isMuted = bool;
+	}
 
 	// Other methods or modifications as needed
 }

@@ -23,15 +23,13 @@ public class MenuController extends RunnableSceneController implements Initializ
 
     public Button playButton;
     public Button leaderBoardButton;
-
     public static GameController controller;
     public Button backgroundButton;
-
     private int previousRandom;
     private int newRandom;
+    public static SettingsController settingsController;
     @FXML
     public void goToGame(ActionEvent actionEvent) {
-
         if (controller != null && controller.gamePaused) {
             // If the game is paused, resume it
             SnakeGameApp.stageManager.resumeGame();
@@ -46,6 +44,15 @@ public class MenuController extends RunnableSceneController implements Initializ
     public void goToLeaderboard(ActionEvent actionEvent) {
         SnakeGameApp.stageManager.loadNewScene("/fxml/Leaderboard.fxml");
 
+    }
+
+    @FXML
+    public void goToSettings(ActionEvent actionEvent) {
+        if (settingsController != null) {
+            SnakeGameApp.stageManager.resumeSettings();
+        } else {
+            SnakeGameApp.stageManager.loadSettingsScene("/fxml/Settings.fxml");
+        }
     }
 
     @FXML
