@@ -22,8 +22,6 @@ import javafx.scene.text.Text;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-
 /**
  * The GameController class is responsible for managing the game logic, user input, and scene transitions
  * in the Snake Game application. It extends the RunnableSceneController and implements Initializable
@@ -114,7 +112,7 @@ public class GameController extends RunnableSceneController implements Initializ
         items = new ItemsController();
         MenuController.controller = this;
         items.controller = this;
-        ImageView image = new ImageView(ImageUtil.images.get("19"));
+        ImageView image = new ImageView(ImageUtil.getImages().get("19"));
         backgroundImageView.setImage(image.getImage());
         gameRunning = true;
         gamePaused = false;
@@ -221,9 +219,12 @@ public class GameController extends RunnableSceneController implements Initializ
     private void togglePause()  {
         gamePaused = !gamePaused;
         if (gamePaused) {
+            items.pauseGame();
+            MusicPlayer.pauseAllMusic();
             SnakeGameApp.stageManager.loadNewScene("/fxml/Menu.fxml");
             System.out.println("Paused");
         } else {
+            items.resumeGame();
             System.out.println("Resumed");
         }
     }
@@ -237,7 +238,6 @@ public class GameController extends RunnableSceneController implements Initializ
             if (snake.isAlive()) {
                 createSnake();
                 actualize();
-                System.out.println(scoreMin);
                 if (items.food.isAlive()) {
                     if (items.food.isAlive() && !items.obstacle.isAlive()) {
                         items.drawObstacle();
@@ -255,21 +255,21 @@ public class GameController extends RunnableSceneController implements Initializ
                     items.obstacle = new ItemsModel();
                     items.food = new ItemsModel();
                 }
-                if (items.slowMo.isAlive() && snake.score == scoreMin && speedFactor == 1.0) {
+                if (items.slowMo.isAlive() && snake.getScore() == scoreMin && speedFactor == 1.0) {
                     items.drawSloMo();
                     items.slowMoHit(snake);
                 } else {
                     items.deleteSlow();
                     items.slowMo = new ItemsModel();
                 }
-                if (items.fastSpeed.isAlive() && snake.score == scoreMin + 4 && speedFactor == 1.0) {
+                if (items.fastSpeed.isAlive() && snake.getScore() == scoreMin + 4 && speedFactor == 1.0) {
                     items.drawFastSpeed();
                     items.fastSpeedHit(snake);
                 } else {
                     items.deleteFastSpeed();
                     items.fastSpeed = new ItemsModel();
                 }
-                if (items.doublePoints.isAlive() && snake.score == scoreMin + 6) {
+                if (items.doublePoints.isAlive() && snake.getScore() == scoreMin + 6) {
                     items.drawDoublePoints();
                     items.doublePointsHit(snake);
                 } else {
@@ -334,12 +334,12 @@ public class GameController extends RunnableSceneController implements Initializ
      * Updates the positions of the snake's body segments on the UI.
      */
     public void actualizeBody() {
-        for (int i = snake.bodyPoints.size() - 1; i >= 0; i--) {
-            Point bodyPoint = snake.bodyPoints.get(i);
-            bodyImage = snake.bodyPointImages.get(i);
+        for (int i = snake.getBodyPoints().size() - 1; i >= 0; i--) {
+            Point bodyPoint = snake.getBodyPoints().get(i);
+            bodyImage = snake.getBodyPointImages().get(i);
 
             if (i != 0) {
-                Point nextBodyPoint = snake.bodyPoints.get(i - 1);
+                Point nextBodyPoint = snake.getBodyPoints().get(i - 1);
                 bodyPoint.setLocation(nextBodyPoint.getX(), nextBodyPoint.getY());
             } else {
                 bodyPoint.setLocation(lastX, lastY);
@@ -391,8 +391,8 @@ public class GameController extends RunnableSceneController implements Initializ
      */
     public void eatBody() {
         if (snake.getSnakeLength() > 1) {
-            for (Point point : snake.bodyPoints) {
-                for (Point point2 : snake.bodyPoints) {
+            for (Point point : snake.getBodyPoints()) {
+                for (Point point2 : snake.getBodyPoints()) {
                     if (point.equals(point2) && point != point2) {
                         snake.setAlive(false);
                     }

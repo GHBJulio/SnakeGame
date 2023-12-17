@@ -19,7 +19,7 @@ public class  ImageUtil {
 	/** Private constructor to prevent the creation of instances */
 	private ImageUtil() {}
 	/** A map to store images with corresponding string keys. */
-	public static Map<String, Image> images = new HashMap<>();
+	private static Map<String, Image> images = new HashMap<>();
 
 
 
@@ -71,7 +71,7 @@ public class  ImageUtil {
 	 * @return The Image object, or null if the image fails to load.
 	 */
 
-	public static Image getImage(String imagePath) {
+	private static Image getImage(String imagePath) {
 		try {
 			return new Image(ImageUtil.class.getClassLoader().getResourceAsStream(imagePath));
 		} catch (Exception e) {
@@ -81,4 +81,11 @@ public class  ImageUtil {
 		}
 	}
 
+	public static void setImages(Map<String, Image> images) {
+		ImageUtil.images = images;
 	}
+
+	public static Map<String, Image> getImages() {
+		return images;
+	}
+}

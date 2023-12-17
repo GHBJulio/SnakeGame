@@ -40,6 +40,10 @@ public class MusicPlayer extends Thread {
 		this.musicFilename = filename;
 	}
 
+	public static boolean isMuted() {
+		return isMuted;
+	}
+
 	/**
 	 * Starts playing the music continuously in a separate thread.
 	 */
@@ -101,19 +105,60 @@ public class MusicPlayer extends Thread {
 	 *
 	 * @param musicPlayer The MusicPlayer instance to stop.
 	 */
-	public static void stopMusic(MusicPlayer musicPlayer) {
+	public static void pauseMusic(MusicPlayer musicPlayer) {
 		try {
-			System.out.println("Stopping music for: " + musicPlayer);
+			System.out.println("Pausing music for: " + musicPlayer);
 
 			if (musicPlayer != null && musicPlayer.mediaPlayer != null) {
 				if (musicPlayer.mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
-					musicPlayer.mediaPlayer.stop();
-					activeMusicPlayers.remove(musicPlayer);
-					System.out.println("Music stopped successfully.");
+					musicPlayer.mediaPlayer.pause();
+					System.out.println("Music paused successfully.");
 				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Resumes the music for a specific MusicPlayer instance.
+	 *
+	 * @param musicPlayer The MusicPlayer instance to resume.
+	 */
+	public static void resumeMusic(MusicPlayer musicPlayer) {
+		try {
+			System.out.println("Resuming music for: " + musicPlayer);
+
+			if (musicPlayer != null && musicPlayer.mediaPlayer != null) {
+				if (musicPlayer.mediaPlayer.getStatus() == MediaPlayer.Status.PAUSED) {
+					musicPlayer.mediaPlayer.play();
+					System.out.println("Music resumed successfully.");
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Resumes all active music instances.
+	 */
+	public static void resumeAllMusic() {
+		synchronized (activeMusicPlayers) {
+			for (MusicPlayer musicPlayer : activeMusicPlayers) {
+				resumeMusic(musicPlayer);
+			}
+		}
+	}
+
+	/**
+	 * Pauses all active music instances.
+	 */
+	public static void pauseAllMusic() {
+		synchronized (activeMusicPlayers) {
+			for (MusicPlayer musicPlayer : activeMusicPlayers) {
+				pauseMusic(musicPlayer);
+			}
 		}
 	}
 

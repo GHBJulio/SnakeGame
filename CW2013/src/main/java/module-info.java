@@ -49,11 +49,6 @@ module CW2013 {
     requires javafx.fxml;
 
     /**
-     * Requires the MySQL Connector/J module for MySQL database connectivity.
-     */
-    requires mysql.connector.j;
-
-    /**
      * Requires the Apache POI module for reading and writing Microsoft Office documents.
      */
     requires poi;

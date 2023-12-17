@@ -21,19 +21,23 @@ public abstract class Entity {
     public boolean isAlive;
 
     /** The x-coordinate of the head of the entity. */
-    int headX;
+    private int headX;
 
     /** The y-coordinate of the head of the entity. */
-    int headY;
+    private int headY;
 
     /** The image associated with the entity. */
-    Image image;
+    private Image image;
 
     /** The width of the entity. */
-    int w;
+    private int w;
+
+    public void setImage(Image image) {
+        this.image = image;
+    }
 
     /** The height of the entity. */
-    int h;
+    private int h;
 
     /**
      * Sets the x-coordinate of the head of the entity.

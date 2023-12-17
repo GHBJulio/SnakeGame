@@ -25,11 +25,11 @@ public class ItemsModel extends Entity {
         previousRandom = 0;
         isAlive = true;
         imageObstacle = getRandomObstacle();
-        this.image = getRandomFoodImage();
-        this.w = (int) image.getWidth();
-        this.h = (int) image.getHeight();
-        this.headX = getRandomXPosition();
-        this.headY = getRandomYPosition();
+        this.setImage(getRandomFoodImage());
+        this.setW((int) getImage().getWidth());
+        this.setH((int) getImage().getHeight());
+        this.setHeadX(getRandomXPosition());
+        this.setHeadY(getRandomYPosition());
     }
 
     /**
@@ -38,7 +38,7 @@ public class ItemsModel extends Entity {
      * @return The slow motion item image.
      */
     public Image getSlowMoImage() {
-        return ImageUtil.images.get("25");
+        return ImageUtil.getImages().get("25");
     }
 
     /**
@@ -47,7 +47,7 @@ public class ItemsModel extends Entity {
      * @return The fast speed item image.
      */
     public Image getFastSpeedImage() {
-        return ImageUtil.images.get("26");
+        return ImageUtil.getImages().get("26");
     }
 
     /**
@@ -56,7 +56,7 @@ public class ItemsModel extends Entity {
      * @return The double points item image.
      */
     public Image getDoublePointsImage() {
-        return ImageUtil.images.get("27");
+        return ImageUtil.getImages().get("27");
     }
 
     /**
@@ -64,13 +64,13 @@ public class ItemsModel extends Entity {
      *
      * @return The random obstacle item image.
      */
-    private Image getRandomObstacle() {
+    public Image getRandomObstacle() {
         Random random = new Random();
         while (newRandom == previousRandom) {
             newRandom = random.nextInt(3) + 22;
         }
         previousRandom = newRandom;
-        return ImageUtil.images.get(String.valueOf(newRandom));
+        return ImageUtil.getImages().get(String.valueOf(newRandom));
     }
 
     /**
@@ -78,9 +78,9 @@ public class ItemsModel extends Entity {
      *
      * @return The random food item image.
      */
-    private Image getRandomFoodImage() {
+    public Image getRandomFoodImage() {
         Random random = new Random();
-        return ImageUtil.images.get(String.valueOf(random.nextInt(16)));
+        return ImageUtil.getImages().get(String.valueOf(random.nextInt(16)));
     }
 
     /**
@@ -106,8 +106,8 @@ public class ItemsModel extends Entity {
      *
      * @return The random X position
      */
-    private int getRandomXPosition() {
-        return (int) (Math.random() * (800 - w + 10));
+    public int getRandomXPosition() {
+        return (int) (Math.random() * (800 - getW() + 10));
     }
 
     /**
@@ -115,8 +115,8 @@ public class ItemsModel extends Entity {
      *
      * @return The random Y position
      */
-    private int getRandomYPosition() {
-        return (int) (Math.random() * (500 - h - 40));
+    public int getRandomYPosition() {
+        return (int) (Math.random() * (500 - getH() - 40));
     }
 
     /**

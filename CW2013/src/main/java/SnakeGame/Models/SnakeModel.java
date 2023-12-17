@@ -19,27 +19,26 @@ public class SnakeModel extends Entity {
     private int speed_XY;
 
     /** The length of the snake. */
-    public int snakeLength;
+    private int snakeLength;
 
     private int num;
 
     /** The score achieved by the snake. */
-    public int score = 0;
+    private int score = 0;
 
     /** The image representing the snake's head. */
-    private static Image IMG_SNAKE_HEAD = ImageUtil.images.get("snake-head-right");
+    private static Image IMG_SNAKE_HEAD = ImageUtil.getImages().get("snake-head-right");
 
     /** The list of points representing the body segments of the snake. */
-    public List<Point> bodyPoints = new LinkedList<>();
+    private List<Point> bodyPoints = new LinkedList<>();
 
     /** The list of ImageViews representing the graphical body segments of the snake. */
-    public List<ImageView> bodyPointImages = new LinkedList<>();
-
+    private List<ImageView> bodyPointImages = new LinkedList<>();
     /** Flag indicating whether the snake is alive. */
     private boolean isAlive;
 
     /** Flags indicating the direction of the snake. */
-    boolean up, down, left, right = true;
+    private boolean up, down, left, right = true;
 
     /**
      * Constructs a SnakeModel with the specified initial position.
@@ -49,14 +48,14 @@ public class SnakeModel extends Entity {
      */
     public SnakeModel(int x, int y) {
         this.isAlive = true;
-        this.headX = x;
-        this.headY = y;
-        this.image = ImageUtil.images.get("snake-body");
-        this.w = (int) image.getWidth();
-        this.h = (int) image.getHeight();
+        this.setHeadX(x);
+        this.setHeadY(y);
+        this.setImage(ImageUtil.getImages().get("snake-body"));
+        this.setW((int) getImage().getWidth());
+        this.setH((int) getImage().getHeight());
         this.speed_XY = 2;
         this.snakeLength = 1;
-        this.num = w / speed_XY;
+        this.num = getW() / speed_XY;
     }
 
     /**
@@ -65,7 +64,7 @@ public class SnakeModel extends Entity {
      * @return The image of the snake's body.
      */
     public Image getBody() {
-        return image;
+        return getImage();
     }
 
     /**
@@ -76,6 +75,23 @@ public class SnakeModel extends Entity {
     public ImageView getImgSnakeHead() {
         ImageView imageView = new ImageView(IMG_SNAKE_HEAD);
         return imageView;
+    }
+
+    /**
+     * Gets an ImageView representing the snake's body.
+     * <p>
+     * set The points of the snake's body.
+     */
+    public void setBodyPointImages(List<ImageView> bodyPointImages) {
+        this.bodyPointImages = bodyPointImages;
+    }
+    /**
+     * Gets an ImageView representing the snake's body.
+     *
+     * @return The bodyPoint ImageView of the snake's body.
+     */
+    public List<ImageView> getBodyPointImages() {
+        return bodyPointImages;
     }
 
     /**

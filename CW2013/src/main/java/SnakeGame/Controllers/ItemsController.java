@@ -5,6 +5,7 @@ import SnakeGame.Models.MusicPlayer;
 import SnakeGame.Models.SnakeModel;
 import SnakeGame.RunnableSceneController;
 import javafx.animation.KeyFrame;
+import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -52,10 +53,13 @@ public class ItemsController extends RunnableSceneController {
     private ImageView fastImage;
     private ImageView foodImage;
     private ImageView doublePointsImage;
+
+    private Timeline timeline;
     /**
      * Flag indicating whether the double points power-up is active.
      */
     public boolean isDoublePoints;
+
 
     /**
      * Constructs an ItemsController, initializing item models.
@@ -67,6 +71,7 @@ public class ItemsController extends RunnableSceneController {
         slowMo = new ItemsModel();
         fastSpeed = new ItemsModel();
         doublePoints = new ItemsModel();
+        MenuController.items = this;
     }
 
     /**
@@ -85,17 +90,17 @@ public class ItemsController extends RunnableSceneController {
             ImageView bodyImage = new ImageView(mySnake.getBody());
             ImageView bodyImage2 = new ImageView(mySnake.getBody());
             if (!isDoublePoints) {
-                mySnake.bodyPoints.add(new Point(mySnake.getHeadX(), mySnake.getHeadY()));
-                mySnake.bodyPointImages.add(bodyImage);
+                mySnake.getBodyPoints().add(new Point(mySnake.getHeadX(), mySnake.getHeadY()));
+                mySnake.getBodyPointImages().add(bodyImage);
                 mySnake.changeLength(mySnake.getSnakeLength() + 1);
                 mySnake.setScore(mySnake.getScore() + 1);
                 controller.rootPane.getChildren().add(bodyImage);
             } else {
-                mySnake.bodyPoints.add(new Point(mySnake.getHeadX(), mySnake.getHeadY()));
-                mySnake.bodyPointImages.add(bodyImage);
+                mySnake.getBodyPoints().add(new Point(mySnake.getHeadX(), mySnake.getHeadY()));
+                mySnake.getBodyPointImages().add(bodyImage);
                 controller.rootPane.getChildren().add(bodyImage);
-                mySnake.bodyPoints.add(new Point(mySnake.getHeadX(), mySnake.getHeadY()));
-                mySnake.bodyPointImages.add(bodyImage2);
+                mySnake.getBodyPoints().add(new Point(mySnake.getHeadX(), mySnake.getHeadY()));
+                mySnake.getBodyPointImages().add(bodyImage2);
                 controller.rootPane.getChildren().add(bodyImage2);
                 mySnake.changeLength(mySnake.getSnakeLength() + 2);
                 mySnake.setScore(mySnake.getScore() + 2);
@@ -196,19 +201,19 @@ public class ItemsController extends RunnableSceneController {
         if (obstacleRect.getBoundsInParent().intersects(snakeRect.getBoundsInParent()) && obstacle.isAlive() && mySnake.isAlive()) {
             MusicPlayer.getMusicPlay("src/main/resources/snakeHit.mp3", false);
             obstacle.setAlive(false);
-            int lastIndexImage = mySnake.bodyPointImages.size() - 1;
-            int lastIndex = mySnake.bodyPoints.size() - 1;
+            int lastIndexImage = mySnake.getBodyPointImages().size() - 1;
+            int lastIndex = mySnake.getBodyPoints().size() - 1;
             System.out.println(mySnake.getSnakeLength());
 
             // Check if the snake's length is greater than 1
             if (mySnake.getSnakeLength() - 1 >= 1) {
                 mySnake.setSpeed_XY(7);
                 mySnake.changeLength(mySnake.getSnakeLength() - 1);
-                mySnake.bodyPoints.remove(lastIndex);
+                mySnake.getBodyPoints().remove(lastIndex);
                 mySnake.setScore(mySnake.getScore() - 1);
 
                 // Remove the oldest bodyImage
-                ImageView removedBodyImage = mySnake.bodyPointImages.remove(lastIndexImage);
+                ImageView removedBodyImage = mySnake.getBodyPointImages().remove(lastIndexImage);
 
                 // Remove it from the rootPane (or your container)
                 controller.rootPane.getChildren().remove(removedBodyImage);
@@ -320,7 +325,31 @@ public class ItemsController extends RunnableSceneController {
      * @param callback The callback function to be executed when the timer expires.
      */
     private void startTimer(long duration, EventHandler<ActionEvent> callback) {
-        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(duration), callback));
+        // Create a timeline with the specified duration
+        timeline = new Timeline(new KeyFrame(Duration.millis(duration), callback));
+
+        // Set cycle count to indefinite to keep it running
+        timeline.setCycleCount(Timeline.INDEFINITE);
+
+        // Play the timeline
         timeline.play();
+    }
+
+    // Call this method when the game is paused
+    void pauseGame() {
+        if (timeline != null) {
+            // Pause the timeline
+            System.out.println("I'VE PAUSED");
+            timeline.pause();
+        }
+    }
+
+    // Call this method when the game is resumed
+    void resumeGame() {
+        if (timeline != null) {
+            // Resume the timeline
+            System.out.println("I'VE RESUMED");
+            timeline.play();
+        }
     }
 }
