@@ -5,8 +5,158 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45f4b637-e193-424b-96c8-f43350f6fe65" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/SnakeGameUON.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/SnakeGame/Controllers/DatabaseConnectionTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/SnakeGame/Models/EntityTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/SnakeGame/Models/PlayerModelTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/SnakeGame/Models/SnakeModelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CW2013.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CW2013/SnakeGame/Controllers/DatabaseConnection.html" beforeDir="false" afterPath="$PROJECT_DIR$/CW2013/SnakeGame/Controllers/DatabaseConnection.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CW2013/SnakeGame/Controllers/GameController.html" beforeDir="false" afterPath="$PROJECT_DIR$/CW2013/SnakeGame/Controllers/GameController.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CW2013/SnakeGame/Controllers/ItemsController.html" beforeDir="false" afterPath="$PROJECT_DIR$/CW2013/SnakeGame/Controllers/ItemsController.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CW2013/SnakeGame/Controllers/LeaderboardController.html" beforeDir="false" afterPath="$PROJECT_DIR$/CW2013/SnakeGame/Controllers/LeaderboardController.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CW2013/SnakeGame/Controllers/MenuController.html" beforeDir="false" afterPath="$PROJECT_DIR$/CW2013/SnakeGame/Controllers/MenuController.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CW2013/SnakeGame/Controllers/SettingsController.html" beforeDir="false" afterPath="$PROJECT_DIR$/CW2013/SnakeGame/Controllers/SettingsController.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CW2013/SnakeGame/Controllers/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/CW2013/SnakeGame/Controllers/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CW2013/SnakeGame/Controllers/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/CW2013/SnakeGame/Controllers/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CW2013/SnakeGame/Models/Entity.html" beforeDir="false" afterPath="$PROJECT_DIR$/CW2013/SnakeGame/Models/Entity.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CW2013/SnakeGame/Models/ImageUtil.html" beforeDir="false" afterPath="$PROJECT_DIR$/CW2013/SnakeGame/Models/ImageUtil.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CW2013/SnakeGame/Models/ItemsModel.html" beforeDir="false" afterPath="$PROJECT_DIR$/CW2013/SnakeGame/Models/ItemsModel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CW2013/SnakeGame/Models/MusicPlayer.html" beforeDir="false" afterPath="$PROJECT_DIR$/CW2013/SnakeGame/Models/MusicPlayer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CW2013/SnakeGame/Models/PlayerModel.html" beforeDir="false" afterPath="$PROJECT_DIR$/CW2013/SnakeGame/Models/PlayerModel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CW2013/SnakeGame/Models/SnakeModel.html" beforeDir="false" afterPath="$PROJECT_DIR$/CW2013/SnakeGame/Models/SnakeModel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CW2013/SnakeGame/Models/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/CW2013/SnakeGame/Models/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CW2013/SnakeGame/Models/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/CW2013/SnakeGame/Models/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CW2013/SnakeGame/RunnableSceneController.html" beforeDir="false" afterPath="$PROJECT_DIR$/CW2013/SnakeGame/RunnableSceneController.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CW2013/SnakeGame/SnakeGameApp.html" beforeDir="false" afterPath="$PROJECT_DIR$/CW2013/SnakeGame/SnakeGameApp.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CW2013/SnakeGame/StageManager.html" beforeDir="false" afterPath="$PROJECT_DIR$/CW2013/SnakeGame/StageManager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CW2013/SnakeGame/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/CW2013/SnakeGame/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CW2013/SnakeGame/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/CW2013/SnakeGame/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CW2013/module-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/CW2013/module-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allclasses-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/allclasses-index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allpackages-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/allpackages-index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/help-doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/help-doc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index-files/index-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index-files/index-10.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-10.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index-files/index-11.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-11.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index-files/index-12.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-12.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index-files/index-13.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-13.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index-files/index-14.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-14.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index-files/index-15.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-15.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index-files/index-16.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-16.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index-files/index-17.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-17.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index-files/index-18.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-18.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index-files/index-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index-files/index-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index-files/index-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index-files/index-5.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-5.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index-files/index-6.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-6.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index-files/index-7.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-7.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index-files/index-8.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-8.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index-files/index-9.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-9.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local_leaderboard.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/local_leaderboard.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/member-search-index.js" beforeDir="false" afterPath="$PROJECT_DIR$/member-search-index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/overview-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/Controllers/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/Controllers/DatabaseConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/Controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/Controllers/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/Controllers/ItemsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/Controllers/ItemsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/Controllers/LeaderboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/Controllers/LeaderboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/Controllers/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/Controllers/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/Controllers/SettingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/Controllers/SettingsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/Models/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/Models/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/Models/ImageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/Models/ImageUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/Models/MusicPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/Models/MusicPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/Models/SnakeModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/Models/SnakeModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/SnakeGameApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/SnakeGameApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SnakeGame/StageManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SnakeGame/StageManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/Game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/Menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/Menu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/Settings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/Settings.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/Controllers/DatabaseConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SnakeGame/Controllers/DatabaseConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/Controllers/GameController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SnakeGame/Controllers/GameController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/Controllers/GameController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SnakeGame/Controllers/GameController$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/Controllers/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SnakeGame/Controllers/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/Controllers/ItemsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SnakeGame/Controllers/ItemsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/Controllers/LeaderboardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SnakeGame/Controllers/LeaderboardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/Controllers/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SnakeGame/Controllers/MenuController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/Controllers/SettingsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SnakeGame/Controllers/SettingsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/Models/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SnakeGame/Models/Entity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/Models/ImageUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SnakeGame/Models/ImageUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/Models/MusicPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SnakeGame/Models/MusicPlayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/Models/SnakeModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SnakeGame/Models/SnakeModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/SnakeGameApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SnakeGame/SnakeGameApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SnakeGame/StageManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SnakeGame/StageManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fxml/Game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/Menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fxml/Menu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/Settings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fxml/Settings.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/2294056ad1aa7e15ed1f2337507fa19e.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/ColourTheme.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/MenuBackground.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/UI-background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/UI-background1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/UI-background12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/UI-background2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/UI-background3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/UI-background4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/UI-background5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/a4229a483cf76e0b5458450c2e591ff3--d-texture-paint-texture.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/backButton.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/bomb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/bomb1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/bonfire.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/boost.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/double-point.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/doublePoints.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/dynamite.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/end.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/fast-time.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/food-apple.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/food-banana.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/food-blueberry.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/food-cherry.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/food-durian.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/food-grape.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/food-grapefruit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/food-kiwi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/food-lemon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/food-litchi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/food-mango.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/food-orange.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/food-peach.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/food-pear.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/food-pineapple.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/food-pitaya.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/food-strawberry.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/food-watermelon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/frogger.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/fxml/Game.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/fxml/Leaderboard.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/fxml/Menu.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/fxml/Settings.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/game-scene-01.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/in-snake-head-clipart-snake-head-cartoon-11562915033zdtswr66u1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/kindpng_2287331.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/kindpng_4091760.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/mute.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/pauseImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/slowMotion.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/snake-body.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/snake-graphics.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/snake-head-right.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/snake-logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/snakeEat.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/snakeHit.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/snake_sprites.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/turtle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/volume.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/wp3906260.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,11 +169,15 @@
         <option value="module-info" />
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -36,41 +190,152 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/guilhermejulio/comp2013-dmscw/CW2013&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "dev",
+    "last_opened_file_path": "/Users/guilhermejulio/comp2013-dmscw/CW2013",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="SnakeGame.view" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main/resources/fxml" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/main/resources/ExcelFiles" />
-      <recent name="$PROJECT_DIR$/src/main/java/SnakeGame/ExcelFile" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="SnakeGame.Models" />
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="SnakeGame.Controllers" />
+      <recent name="SnakeGame.Models" />
+      <recent name="test" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.SnakeGameApp">
+    <configuration name="SnakeGameApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SnakeGame.SnakeGameApp" />
+      <module name="CW2013" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SnakeGame.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DatabaseConnectionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CW2013" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SnakeGame.Controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="SnakeGame.Controllers" />
+      <option name="MAIN_CLASS_NAME" value="SnakeGame.Controllers.DatabaseConnectionTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PlayerModelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CW2013" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SnakeGame.Models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="SnakeGame.Models" />
+      <option name="MAIN_CLASS_NAME" value="SnakeGame.Models.PlayerModelTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SnakeGame in CW2013" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CW2013" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java/SnakeGame" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SnakeModelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CW2013" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SnakeGame.Models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="SnakeGame.Models" />
+      <option name="MAIN_CLASS_NAME" value="SnakeGame.Models.SnakeModelTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="SnakeGameUON" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="SnakeGameUON" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.SnakeGameApp" />
+      <item itemvalue="JUnit.DatabaseConnectionTest" />
+      <item itemvalue="JUnit.PlayerModelTest" />
+      <item itemvalue="JUnit.SnakeGame in CW2013" />
+      <item itemvalue="JUnit.SnakeModelTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.SnakeGameApp" />
+        <item itemvalue="JUnit.SnakeGame in CW2013" />
+        <item itemvalue="JUnit.DatabaseConnectionTest" />
+        <item itemvalue="JUnit.SnakeModelTest" />
+        <item itemvalue="JUnit.PlayerModelTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -98,6 +363,7 @@
       <workItem from="1701604344771" duration="1556000" />
       <workItem from="1701630324480" duration="11668000" />
       <workItem from="1701797247381" duration="100593000" />
+      <workItem from="1702915052049" duration="20361000" />
     </task>
     <servers />
   </component>

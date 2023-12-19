@@ -25,7 +25,7 @@
                 <Font size="26.0" />
             </font></Text>
       <TextField fx:id="addNameField" layoutX="291.0" layoutY="345.0" prefHeight="31.0" prefWidth="218.0" promptText="ex. Charlie" visible="false" />
-      <Text fx:id="endText" fill="WHITE" layoutX="212.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter your name to be in our Global Leaderboard" visible="false" wrappingWidth="398.25048828125">
+      <Text fx:id="endText" fill="WHITE" layoutX="212.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter your name to be in our Global Leaderboard" visible="false" wrappingWidth="459.25048828125">
          <font>
             <Font size="19.0" />
          </font>

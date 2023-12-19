@@ -21,7 +21,7 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <Label layoutX="289.0" layoutY="44.0" prefHeight="72.0" prefWidth="244.0" text="Snake Game" textAlignment="CENTER" wrapText="true">
+      <Label layoutX="289.0" layoutY="44.0" prefHeight="72.0" prefWidth="316.0" text="Snake Game" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="45.0" />
          </font>

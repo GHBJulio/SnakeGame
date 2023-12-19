@@ -19,7 +19,7 @@
             <Font size="54.0" />
          </font>
       </Text>
-      <Button fx:id="blackWhiteGameBtn" alignment="CENTER" layoutX="282.0" layoutY="111.0" mnemonicParsing="false" onAction="#blackWhiteMode" prefHeight="39.0" prefWidth="237.0" text="Black &amp; White">
+      <Button fx:id="blackWhiteGameBtn" alignment="CENTER" layoutX="235.0" layoutY="109.0" mnemonicParsing="false" onAction="#blackWhiteMode" prefHeight="47.0" prefWidth="330.0" text="Black &amp; White">
          <font>
             <Font size="25.0" />
          </font>
