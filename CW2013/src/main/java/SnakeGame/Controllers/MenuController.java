@@ -30,7 +30,7 @@ import static SnakeGame.Controllers.GameController.musicPlayer1;
  *
  * @author Guilherme Julio
  */
-public class    MenuController extends RunnableSceneController implements Initializable {
+public class MenuController extends RunnableSceneController implements Initializable {
 
     /**
      * Default constructor for the MenuController class.
@@ -128,6 +128,7 @@ public class    MenuController extends RunnableSceneController implements Initia
             alertProgress();
         } else {
             Platform.exit();
+            System.exit(0); // Forcefully exit the JVM with status code 0
         }
     }
 
@@ -164,7 +165,10 @@ public class    MenuController extends RunnableSceneController implements Initia
 
         alert.showAndWait().ifPresent(buttonType -> {
             if (buttonType == ButtonType.YES) {
-                Platform.exit();
+                Platform.runLater(() -> {
+                    Platform.exit();
+                    System.exit(0); // Forcefully exit the JVM with status code 0
+                });
             } else {
                 // User clicked "Cancel," do nothing
             }

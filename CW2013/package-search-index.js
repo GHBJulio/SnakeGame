@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"m":"CW2013","l":"SnakeGame"},{"m":"CW2013","l":"SnakeGame.Controllers"},{"m":"CW2013","l":"SnakeGame.Models"}];updateSearchResults();

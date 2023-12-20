@@ -13,7 +13,7 @@ To run the Snake Game, follow these steps:
 2. Open the project in your preferred Java development environment (e.g., IntelliJ IDEA, Eclipse).
 
 3. Ensure that your Java SDK is version 20 or higher.
-
+ 
 4. Run the SnakeGameApp.java file to start the game.
 
 ## How to Play
@@ -24,5 +24,5 @@ To run the Snake Game, follow these steps:
 
 ### Credits
 * This project utilises Java, JavaFX, and external libraries as specified in the dependencies.
-* Images and assets are sourced from [provide credit if applicable].
+* Some of the Images are sourced from [FlatIcon](flaticon.com).
 
