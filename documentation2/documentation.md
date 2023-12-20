@@ -38,47 +38,61 @@ These combined changes mark a significant step towards a well-organised, maintai
 
 ### Final Class Diagram
 
+## Talking Points for Design and Refactoring Activities
+
+### High-level Class Diagram
 ![High-level Class Diagram](JulioGuilherme_Design.png)
 
-
-
-
+### UML Diagram
 ![UML Diagram](JulioGuilherme_Design_UML.png)
 
+### Refactoring Activities
 
+I've included a high-level class diagram that visually represents the key classes and their relationships in the system. This provides a bird's-eye view of the software architecture, helping us understand the structure and interactions between different components.
 
+1. **Organised Project Structure:**
+   - Implemented well-organised files with meaningful names.
+   - Grouped class types like Models and Controllers into separate packages for clarity.
+   - Notable classes include SnakeModel and PlayerModel, enhancing organisation and functionality highlighting.
 
-## Refactoring Activities
+2. **Encapsulation and Deletions:**
+   - Renamed classes (e.g., Food to ItemsModel) for clarity and consistency.
+   - Applied encapsulation to various classes (Entity, ImageUtil, ItemsModel, PlayerModel, SnakeModel).
+   - Deleted unused resources such as Play, Paddle, MyFrame, GameUtil, Snake, movable interface, and assets.
 
-* Files in my project are well-organized with meaningful names. Class types like Models and Controllers are grouped into separate packages for clarity, featuring names such as SnakeModel and PlayerModel. This enhances organisation and highlights the functionality of each class.
+3. **Single Responsibility Principle and MVC Implementation:**
+   - Refactored classes like SnakeModel and Entity to follow the single responsibility principle.
+   - Implemented the MVC pattern with organised Models and Controllers (e.g., SnakeGame.Models and SnakeGame.Controllers).
+   - Utilised FXML for MVC implementation, separating data storage and retrieval (Models) from interactions and game logic (Controllers).
 
-* Classes like Food were renamed to ItemsModel, employing encapsulation for code organization and access management. Encapsulation is applied to various classes, including Entity, ImageUtil, ItemsModel, PlayerModel, and SnakeModel. Unused resources, such as Play, Paddle, MyFrame, GameUtil, Snake, movable interface, and some assets, were deleted.
+4. **Singleton and Testing:**
+   - Utilised the singleton pattern for StageManager, providing centralised control.
+   - Implemented comprehensive unit, integration, and UI testing with JUnit.
 
-* Classes like SnakeModel and Entity follow the single responsibility principle, separating concerns previously handled by the MyFrame class. The GameController now exclusively manages snake logic.
+5. **JavaFX Transition:**
+   - Successfully transitioned from Swing to JavaFX, incorporating fxml files and JavaFX features into model and controller classes.
+   - Placed the module-info.java file in src/main/java.
 
-* The MVC pattern is implemented, with Models and Controllers organised in specific folders like SnakeGame.Models and SnakeGame.Controllers. FXML is used for MVC implementation, with models storing and retrieving data, and controllers applying the data for interactions and game logic.
+6. **Start Screen and Accessibility:**
+   - Designed the start screen as the main menu using MenuBackground.jpg with a green colour theme.
+   - Implemented a settings page for sound muting/unmuting and included a black and white mode for colour-blind users.
+   - MenuController.java manages start/pause/end functionality and includes a settings button.
 
-* The singleton pattern is utilised for StageManager, offering centralised control and global accessibility for managing the main stage and scene transitions in the JavaFX application.
+7. **Leaderboard and Object Management:**
+   - GameController.java manages storing the player's name and passing it to DatabaseConnection.java for leaderboard updates.
+   - LeaderboardController.java displays all-time top scores and associated player names.
+   - ItemsModel.java manages object pictures (food, obstacles, power-ups), and GameController.java handles the snake's body and head.
 
-* JUnit is employed for comprehensive unit, integration, and UI testing to ensure component correctness and interactions. 
+8. **Gameplay Experience Enhancements:**
+   - Implemented the ability to change the map's background when paused.
+   - Added obstacles and power-ups for a richer gameplay experience.
+   - Added three different power-ups, with obstacles deducting points and snake body on collision.
 
-* Maven is correctly implemented with dependencies specified in the pom.xml file.
+## Achievements
 
-* The project transitions from Swing to JavaFX, with fxml files in the resources folder and JavaFX features incorporated into model and controller classes. 
+1. **Power-Up Collection Logic:**
+   - A significant achievement is enabling users to collect power-up points, requiring intricate logic and creative game development.
 
-* The module-info.java file is located in src/main/java.
-
-* The start screen, designed as the main menu, uses MenuBackground.jpg with a green colour theme. The settings page allows sound muting/unmuting, and accessibility features include a black and white mode for colour-blind users.
-
-* MenuController.java handles start/pause/end functionality and includes a settings button.
-
-* GameController.java manages storing the player's name and passing it to DatabaseConnection.java for leaderboard updates.
-
-* LeaderboardController.java displays all-time top scores and associated player names. The getTopPlayers() method adds the top 10 players to a VBox returned by the displayTopPlayers() method.
-
-* ItemsModel.java manages object pictures, such as food, obstacles, power-ups. GameController.java handles the snake's body and head.
-
-* The map's background can be changed when paused, and obstacles and power-ups enhance the gameplay experience. 
-
-* Three different power-ups are added, and obstacles deduct one point from the snake and its body upon collision. Different random backgrounds can be selected, it's logic can be found in ItemsController.java
-
+2. **Dynamic Background Image and Accessibility Support:**
+   - Proud achievement in allowing users to dynamically change the background image during gameplay.
+   - Considerate design with accessibility features, including a black and white mode for users with colour-blindness.
